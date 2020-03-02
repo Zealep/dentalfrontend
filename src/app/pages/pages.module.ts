@@ -9,10 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProcedimientoComponent } from './procedimiento/procedimiento.component';
+import { PacienteComponent } from './paciente/paciente.component';
+import { SidebarPacienteComponent } from './paciente/sidebar-paciente/sidebar-paciente.component';
 
 
 @NgModule({
-  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent],
+  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

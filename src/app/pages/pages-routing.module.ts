@@ -3,6 +3,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PacienteComponent } from './paciente/paciente.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
         path: 'procedimiento', // /pages/procedimiento
         component: ProcedimientoComponent
       },
+      {
+        path: 'paciente', // /pages/procedimiento
+        component: PacienteComponent
+      }
     
     ]
   },

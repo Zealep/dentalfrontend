@@ -3,7 +3,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PacienteComponent } from './paciente/paciente.component';
+import { PacienteListComponent } from './paciente-list/paciente-list.component';
+import { PacienteComponent } from './paciente-list/paciente/paciente.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,14 @@ const routes: Routes = [
       },
       {
         path: 'paciente', // /pages/procedimiento
-        component: PacienteComponent
+        component: PacienteListComponent,
+        children: [
+          {
+            path: 'find',
+            component: PacienteComponent
+          }
+
+        ]
       }
     
     ]

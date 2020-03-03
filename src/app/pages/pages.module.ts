@@ -9,12 +9,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProcedimientoComponent } from './procedimiento/procedimiento.component';
-import { PacienteComponent } from './paciente/paciente.component';
-import { SidebarPacienteComponent } from './paciente/sidebar-paciente/sidebar-paciente.component';
+import { PacienteListComponent } from './paciente-list/paciente-list.component';
+import { PacienteComponent } from './paciente-list/paciente/paciente.component';
+import { SidebarPacienteComponent } from './paciente-list/sidebar-paciente/sidebar-paciente.component';
 
 
 @NgModule({
-  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent],
+  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent, PacienteListComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

@@ -9,10 +9,9 @@
 
 <mat-nav-list appAccordion>
     <mat-list-item appAccordionLink *ngFor="let menuitem of getMenuitem()" routerLinkActive="selected">
-        <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]">
+        <a appAccordionToggle [routerLink]="['/', menuitem.state]">
             <mat-icon>{{ menuitem.icon }}</mat-icon> 
-            <span>{{ menuitem.name }}</span> 
-            <span fxFlex></span> 
+            <span class="span-item">{{ menuitem.name }}</span> 
         </a>
 
         

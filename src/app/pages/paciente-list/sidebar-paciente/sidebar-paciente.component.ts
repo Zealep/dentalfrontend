@@ -8,13 +8,12 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  { state: 'dashboard', type: 'link', name: 'Dashboard', icon: 'av_timer' },
-  { state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
-  { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
-  { state: 'lists', type: 'link', name: 'Lists', icon: 'view_list' },
-  { state: 'menu', type: 'link', name: 'Menu', icon: 'view_headline' },
-  { state: 'tabs', type: 'link', name: 'Tabs', icon: 'tab' },
-  { state: 'stepper', type: 'link', name: 'Stepper', icon: 'web' }
+  { state: 'datos', type: 'link', name: 'Datos personales', icon: 'person' },
+  { state: 'button', type: 'link', name: 'Imagenes y archivos', icon: 'collections' },
+  { state: 'grid', type: 'link', name: 'Controles', icon: 'date_range' },
+  { state: 'lists', type: 'link', name: 'Citas', icon: 'alarm_add' },
+  { state: 'menu', type: 'link', name: 'Planes de tratamiento', icon: 'assignment' },
+  { state: 'tabs', type: 'link', name: 'Pagos', icon: 'payment' },
 ];
 
 

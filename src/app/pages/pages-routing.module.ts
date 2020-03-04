@@ -1,3 +1,4 @@
+import { PacienteModule } from './paciente-list/paciente/paciente.module';
 import { ProcedimientoComponent } from './procedimiento/procedimiento.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
@@ -26,15 +27,12 @@ const routes: Routes = [
         component: ProcedimientoComponent
       },
       {
-        path: 'paciente', // /pages/procedimiento
-        component: PacienteListComponent,
-        children: [
-          {
-            path: 'find',
-            component: PacienteComponent
-          }
-
-        ]
+        path: 'pacientes', // /pages/paciente
+        component: PacienteListComponent
+      },
+      {
+        path: 'paciente',
+        loadChildren: () => import('./paciente-list/paciente/paciente.module').then(m => m.PacienteModule)
       }
     
     ]

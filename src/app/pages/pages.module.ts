@@ -12,6 +12,7 @@ import { ProcedimientoComponent } from './procedimiento/procedimiento.component'
 import { PacienteListComponent } from './paciente-list/paciente-list.component';
 import { PacienteComponent } from './paciente-list/paciente/paciente.component';
 import { SidebarPacienteComponent } from './paciente-list/sidebar-paciente/sidebar-paciente.component';
+import { PacienteModule } from './paciente-list/paciente/paciente.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SidebarPacienteComponent } from './paciente-list/sidebar-paciente/sideb
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    PacienteModule
   ]
 })
 export class PagesModule { }

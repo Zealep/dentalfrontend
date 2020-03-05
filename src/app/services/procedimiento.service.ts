@@ -18,24 +18,24 @@ export class ProcedimientoService {
   }
 
   getlistar() {        
-    return this.http.get<Procedimiento[]>(`${this.url}/listar`);    
+    return this.http.get<Procedimiento[]>(`${this.url}/list`);    
   }
 
 
   getProcedimientoPorId(id: number) {
-    return this.http.get<Procedimiento>(`${this.url}/buscar/${id}`);
+    return this.http.get<Procedimiento>(`${this.url}/find/${id}`);
   }
 
 
   registrar(procedimiento: Procedimiento) {
-    return this.http.post<Respuesta>(`${this.url}/registrar`, procedimiento);
+    return this.http.post<Respuesta>(`${this.url}/save`, procedimiento);
   }
 
   modificar(procedimiento: Procedimiento) {
-    return this.http.put<Respuesta>(`${this.url}/actualizar`, procedimiento);
+    return this.http.put<Respuesta>(`${this.url}/update`, procedimiento);
   }
 
   eliminar(idProcedimiento: number) {
-    return this.http.delete<Respuesta>(`${this.url}/eliminar/${idProcedimiento}`);
+    return this.http.delete<Respuesta>(`${this.url}/delete/${idProcedimiento}`);
   }
 }

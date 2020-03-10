@@ -1,0 +1,96 @@
+
+<h2>Doctores</h2>
+
+<mat-card>
+    <mat-card-title>
+
+      <button routerLink="/pages/doctor/add" mat-raised-button color="primary">
+        <mat-icon>add</mat-icon>
+        Nuevo doctor
+      </button>
+    </mat-card-title>
+    <mat-card-content>
+      
+        <mat-form-field>
+            <mat-label>Filtrar</mat-label>
+            <input matInput (keyup)="applyFilter($event)">
+          </mat-form-field>
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" matSort>
+          
+            <ng-container matColumnDef="idDoctor">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.idDoctor}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="apellidos">
+              <th mat-header-cell *matHeaderCellDef>  Apellidos </th>
+              <td mat-cell *matCellDef="let element"> {{element.apellidos}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="nombres">
+              <th mat-header-cell *matHeaderCellDef> Nombres </th>
+              <td mat-cell *matCellDef="let element"> {{element.nombres}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="dni">
+              <th mat-header-cell *matHeaderCellDef> DNI </th>
+              <td mat-cell *matCellDef="let element"> {{element.dni}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fechaNacimiento">
+                <th mat-header-cell *matHeaderCellDef> F.Nacimiento </th>
+                <td mat-cell *matCellDef="let element"> {{element.fechaNacimiento}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="telefono">
+                <th mat-header-cell *matHeaderCellDef> Telefono </th>
+                <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="celular">
+                <th mat-header-cell *matHeaderCellDef> Celular </th>
+                <td mat-cell *matCellDef="let element"> {{element.celular}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nroCop">
+                <th mat-header-cell *matHeaderCellDef> N.COP </th>
+                <td mat-cell *matCellDef="let element"> {{element.nroCop}} </td>
+              </ng-container>
+
+            <ng-container matColumnDef="acciones">
+                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button mat-raised-button color="primary" [matMenuTriggerFor]="menuCrud">
+                        <mat-icon>more_vert</mat-icon>     
+                    </button>
+                    <mat-menu #menuCrud="matMenu">
+                        <button mat-menu-item [routerLink]="['/pages/doctor', 'edit', element.idDoctor]">
+                            <mat-icon>edit</mat-icon>
+                            <span>Editar</span>
+                          </button>
+                          <button mat-menu-item disabled>
+                            <mat-icon>delete</mat-icon>
+                            <span>Eliminar</span>
+                          </button>
+                         
+                    </mat-menu>
+                   
+                </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+          </div>
+
+
+    </mat-card-content>
+</mat-card>

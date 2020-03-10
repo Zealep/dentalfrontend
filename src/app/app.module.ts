@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { PagesModule } from './pages/pages.module';
     SharedModule,
     PagesModule
   ],
-  providers: [],
+  providers: [{
+    provide: MAT_DATE_LOCALE, useValue: 'es-ES'
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

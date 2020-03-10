@@ -6,6 +6,13 @@ import { PagesComponent } from './pages.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PacienteListComponent } from './paciente-list/paciente-list.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
+import { DoctorEditComponent } from './doctor/doctor-edit/doctor-edit.component';
+import { AgedaComponent } from './ageda/ageda.component';
+import { RecaudacionComponent } from './recaudacion/recaudacion.component';
+import { ReportePagosComponent } from './reporte-pagos/reporte-pagos.component';
+import { ReporteControlesComponent } from './reporte-controles/reporte-controles.component';
 
 
 const routes: Routes = [
@@ -22,6 +29,22 @@ const routes: Routes = [
         path: 'dashboard', // /pages/dashboard
         component: DashboardComponent
       },
+      {
+        path: 'agenda',
+        component: AgedaComponent
+      },
+      {
+        path: 'recaudacion',
+        component: RecaudacionComponent
+      },
+      {
+        path: 'reporte-pagos',
+        component: ReportePagosComponent
+      },
+      {
+        path: 'reporte-controles',
+        component: ReporteControlesComponent
+      },
 
       {
         path: 'procedimientos', // /pages/procedimiento
@@ -35,6 +58,18 @@ const routes: Routes = [
       {
         path: 'procedimiento/edit/:id',
         component: ProcedimientoEditComponent
+      },
+      {
+        path:'doctores',
+        component:DoctorComponent,
+      },
+      {
+        path:'doctor/add',
+        component: DoctorAddComponent
+      },
+      {
+        path:'doctor/edit/:id',
+        component: DoctorEditComponent
       }
       ,
       {

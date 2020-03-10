@@ -13,6 +13,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatMomentDateModule,MAT_MOMENT_DATE_ADAPTER_OPTIONS } from "@angular/material-moment-adapter";
+
 
 
 
@@ -33,7 +36,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatTableModule,
     MatPaginatorModule,
     MatListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
   exports: [
     MatInputModule,
@@ -48,7 +53,12 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatTableModule,
     MatPaginatorModule,
     MatListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatMomentDateModule
+  ],
+ providers: [
+    {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {strict: true}}
   ]
 })
 export class MaterialModule { 

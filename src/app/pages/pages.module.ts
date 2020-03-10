@@ -19,10 +19,18 @@ import { PacienteEditComponent } from './paciente-list/paciente-edit/paciente-ed
 import { ProcedimientoEditComponent } from './procedimiento/procedimiento-edit/procedimiento-edit.component';
 import { ProcedimientoAddComponent } from './procedimiento/procedimiento-add/procedimiento-add.component';
 import { ProcedimientoFormComponent } from './procedimiento/procedimiento-form/procedimiento-form.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { DoctorFormComponent } from './doctor/doctor-form/doctor-form.component';
+import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
+import { DoctorEditComponent } from './doctor/doctor-edit/doctor-edit.component';
+import { AgedaComponent } from './ageda/ageda.component';
+import { RecaudacionComponent } from './recaudacion/recaudacion.component';
+import { ReportePagosComponent } from './reporte-pagos/reporte-pagos.component';
+import { ReporteControlesComponent } from './reporte-controles/reporte-controles.component';
 
 
 @NgModule({
-  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent, PacienteListComponent, PacienteFormComponent, PacienteAddComponent, PacienteEditComponent, ProcedimientoEditComponent, ProcedimientoAddComponent, ProcedimientoFormComponent],
+  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent, PacienteListComponent, PacienteFormComponent, PacienteAddComponent, PacienteEditComponent, ProcedimientoEditComponent, ProcedimientoAddComponent, ProcedimientoFormComponent, DoctorComponent, DoctorFormComponent, DoctorAddComponent, DoctorEditComponent, AgedaComponent, RecaudacionComponent, ReportePagosComponent, ReporteControlesComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

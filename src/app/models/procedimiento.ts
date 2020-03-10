@@ -1,4 +1,4 @@
-export class Procedimiento {
+export interface Procedimiento {
     idProcedimiento : number;
     nombre : string;
     costo : number;

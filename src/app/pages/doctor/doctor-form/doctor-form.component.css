@@ -1,0 +1,24 @@
+:host {
+    display: flex;
+    justify-content: center;
+  }
+  
+  mat-card,
+  form {
+    margin: 50px;
+    width: 100%;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+  
+  mat-card-actions {
+    margin: 20px;
+  }

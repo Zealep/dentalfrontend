@@ -4,7 +4,7 @@
 <mat-card>
     <mat-card-title>
 
-      <button mat-raised-button color="primary">
+      <button routerLink="/pages/procedimiento/add" mat-raised-button color="primary">
         <mat-icon>add</mat-icon>
         Nuevo procedimiento
       </button>
@@ -49,7 +49,7 @@
                         <mat-icon>more_vert</mat-icon>     
                     </button>
                     <mat-menu #menuCrud="matMenu">
-                        <button mat-menu-item>
+                        <button mat-menu-item [routerLink]="['/pages/procedimiento', 'edit', element.idProcedimiento]">
                             <mat-icon>edit</mat-icon>
                             <span>Editar</span>
                           </button>

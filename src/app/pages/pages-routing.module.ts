@@ -1,16 +1,16 @@
-import { PacienteModule } from './paciente-list/paciente/paciente.module';
+import { ProcedimientoEditComponent } from './procedimiento/procedimiento-edit/procedimiento-edit.component';
+import { ProcedimientoAddComponent } from './procedimiento/procedimiento-add/procedimiento-add.component';
 import { ProcedimientoComponent } from './procedimiento/procedimiento.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PacienteListComponent } from './paciente-list/paciente-list.component';
-import { PacienteComponent } from './paciente-list/paciente/paciente.component';
 
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: PagesComponent,
     children: [ // 
       {
@@ -22,10 +22,21 @@ const routes: Routes = [
         path: 'dashboard', // /pages/dashboard
         component: DashboardComponent
       },
+
       {
-        path: 'procedimiento', // /pages/procedimiento
+        path: 'procedimientos', // /pages/procedimiento
         component: ProcedimientoComponent
       },
+      {
+        path: 'procedimiento/add',
+        component: ProcedimientoAddComponent
+      },
+
+      {
+        path: 'procedimiento/edit/:id',
+        component: ProcedimientoEditComponent
+      }
+      ,
       {
         path: 'pacientes', // /pages/paciente
         component: PacienteListComponent
@@ -34,10 +45,10 @@ const routes: Routes = [
         path: 'paciente',
         loadChildren: () => import('./paciente-list/paciente/paciente.module').then(m => m.PacienteModule)
       }
-    
+
     ]
   },
-  
+
 
 ];
 

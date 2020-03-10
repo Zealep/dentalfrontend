@@ -4,14 +4,14 @@
       <span class="menu-spacer"></span>
       <div>
         <button mat-button [routerLink]=""> Agenda </button>
-        <button mat-button [routerLink]="'/pacientes'"> Pacientes </button>
+        <button mat-button [routerLink]="'/pages/pacientes'"> Pacientes </button>
         <button mat-button [routerLink]=""> Recaudacion </button>
         <button mat-button [matMenuTriggerFor]="menuAdministracion"> 
           Administracion 
           <mat-icon>arrow_drop_down</mat-icon></button>
             <mat-menu #menuAdministracion="matMenu">
-            <button mat-menu-item [routerLink]="'/procedimiento'" >Procedimientos</button>
-            <button mat-menu-item [routerLink]="'/doctor'" >Doctores</button>
+            <button mat-menu-item [routerLink]="'/pages/procedimientos'" >Procedimientos</button>
+            <button mat-menu-item [routerLink]="'/pages/doctor'" >Doctores</button>
             </mat-menu>
 
            <button mat-button [matMenuTriggerFor]="menuReportes" > 

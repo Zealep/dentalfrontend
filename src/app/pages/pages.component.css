@@ -1,7 +1,12 @@
+/*
 .contenedor-principal{
     display: flex;
     align-items: center;
 }
 .contenido-principal {
-    margin: 0 auto; /* requerido para alineación horizontal */
+    margin: 0 auto; 
+}
+*/
+.container{
+    margin: 50px;
 }

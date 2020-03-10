@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subject, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Procedimiento } from '../models/procedimiento';
 import { HOST } from '../shared/var.constant';
 import { Respuesta } from '../models/respuesta';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProcedimientoService {
+ 
   url: string = `${HOST}/procedimiento`;
   procedimientoCambio = new Subject<Procedimiento[]>();
   mensaje = new Subject<string>();
@@ -18,24 +20,49 @@ export class ProcedimientoService {
   }
 
   getlistar() {        
-    return this.http.get<Procedimiento[]>(`${this.url}/list`);    
+    return this.http.get<Procedimiento[]>(`${this.url}/list`)
+    .pipe(
+      catchError(this.handleError)
+    );  
   }
 
-
-  getProcedimientoPorId(id: number) {
+  getById(id: number) {
     return this.http.get<Procedimiento>(`${this.url}/find/${id}`);
   }
 
 
   registrar(procedimiento: Procedimiento) {
-    return this.http.post<Respuesta>(`${this.url}/save`, procedimiento);
+    return this.http.post<Respuesta>(`${this.url}/save`, procedimiento)
+    .pipe(
+      catchError(this.handleError)
+    );
   }
+  
 
   modificar(procedimiento: Procedimiento) {
-    return this.http.put<Respuesta>(`${this.url}/update`, procedimiento);
+    return this.http.put<Respuesta>(`${this.url}/update`, procedimiento)
+    .pipe(
+      catchError(this.handleError)
+    );
   }
 
   eliminar(idProcedimiento: number) {
-    return this.http.delete<Respuesta>(`${this.url}/delete/${idProcedimiento}`);
+    return this.http.delete<Respuesta>(`${this.url}/delete/${idProcedimiento}`)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+   private handleError(error: HttpErrorResponse) {
+    if(error.error instanceof ErrorEvent) {
+      console.log('Client error', error.error.message);
+    } else {
+      // Error en el lado del servidor
+      console.log('Error Status:', error.status);
+      console.log('Error:', error.error);
+    }
+    //catch and rethrow
+    return throwError('Cannot perform the request, please try again later');
+
   }
 }

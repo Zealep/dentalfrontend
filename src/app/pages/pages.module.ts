@@ -13,10 +13,16 @@ import { PacienteListComponent } from './paciente-list/paciente-list.component';
 import { PacienteComponent } from './paciente-list/paciente/paciente.component';
 import { SidebarPacienteComponent } from './paciente-list/sidebar-paciente/sidebar-paciente.component';
 import { PacienteModule } from './paciente-list/paciente/paciente.module';
+import { PacienteFormComponent } from './paciente-list/paciente-form/paciente-form.component';
+import { PacienteAddComponent } from './paciente-list/paciente-add/paciente-add.component';
+import { PacienteEditComponent } from './paciente-list/paciente-edit/paciente-edit.component';
+import { ProcedimientoEditComponent } from './procedimiento/procedimiento-edit/procedimiento-edit.component';
+import { ProcedimientoAddComponent } from './procedimiento/procedimiento-add/procedimiento-add.component';
+import { ProcedimientoFormComponent } from './procedimiento/procedimiento-form/procedimiento-form.component';
 
 
 @NgModule({
-  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent, PacienteListComponent],
+  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent, PacienteListComponent, PacienteFormComponent, PacienteAddComponent, PacienteEditComponent, ProcedimientoEditComponent, ProcedimientoAddComponent, ProcedimientoFormComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

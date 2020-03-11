@@ -5,11 +5,12 @@ import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, HeaderComponent],
+  declarations: [LoginComponent, HeaderComponent, ConfirmDialogComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -17,8 +18,10 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   exports: [
-    HeaderComponent
-  ]
+    HeaderComponent,
+    ConfirmDialogComponent
+  ],
+  entryComponents: [ConfirmDialogComponent]
 
 })
 export class SharedModule { }

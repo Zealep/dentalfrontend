@@ -13,6 +13,8 @@ import { AgedaComponent } from './ageda/ageda.component';
 import { RecaudacionComponent } from './recaudacion/recaudacion.component';
 import { ReportePagosComponent } from './reporte-pagos/reporte-pagos.component';
 import { ReporteControlesComponent } from './reporte-controles/reporte-controles.component';
+import { PacienteAddComponent } from './paciente-list/paciente-add/paciente-add.component';
+import { PacienteEditComponent } from './paciente-list/paciente-edit/paciente-edit.component';
 
 
 const routes: Routes = [
@@ -73,8 +75,16 @@ const routes: Routes = [
       }
       ,
       {
-        path: 'pacientes', // /pages/paciente
+        path: 'pacientes', 
         component: PacienteListComponent
+      },
+      {
+        path: 'paciente/add',
+        component: PacienteAddComponent
+      },
+      {
+        path: 'paciente/edit/:id',
+        component: PacienteEditComponent
       },
       {
         path: 'paciente',

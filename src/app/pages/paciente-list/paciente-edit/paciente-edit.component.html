@@ -1,1 +1,6 @@
-<p>paciente-edit works!</p>
+<zp-paciente-form title="Editar Paciente"
+                 labelSubmit="Editar"
+                 [model]="paciente"
+                 (submit)="submit($event)"
+                 (cancel)="cancel()">
+</zp-paciente-form>

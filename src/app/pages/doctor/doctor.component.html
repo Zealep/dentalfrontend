@@ -1,5 +1,5 @@
 
-<h2>Doctores</h2>
+<h2 class="title-content">Administracion de doctores</h2>
 
 <mat-card>
     <mat-card-title>
@@ -74,7 +74,7 @@
                             <mat-icon>edit</mat-icon>
                             <span>Editar</span>
                           </button>
-                          <button mat-menu-item disabled>
+                          <button mat-menu-item disabled (click)="deleteDoctor(element)">
                             <mat-icon>delete</mat-icon>
                             <span>Eliminar</span>
                           </button>

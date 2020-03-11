@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { PacienteService } from 'src/app/services/paciente.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Paciente } from 'src/app/models/paciente';
+import { catchError } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
 
 @Component({
   selector: 'zp-paciente-add',
@@ -7,9 +13,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PacienteAddComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private service: PacienteService,
+    private router: Router,
+    private snackBar: MatSnackBar) { }
   ngOnInit(): void {
   }
+  submit(paciente: Paciente) {
+    console.log('Going to save', paciente);
+    this.service.registrar(paciente)
+      .pipe(
+        catchError(error => {
+          this.snackBar.open(error, null, {
+            duration: 3000
+          });
+          // catch & replace
+          return EMPTY;
+        })
+      )
+      .subscribe(result => {
+        console.log('The paciente has been added', result);
+        this.router.navigate(['/pages/pacientes']);
+        // mensaje de confirmacion
+        this.snackBar.open('Paciente fue registrado', 'Close', {
+          duration: 3000// milliseconds
+        });
+      });
+  }
 
+  cancel() {
+    this.router.navigate(['/pages/pacientes']);
+  }
 }
+

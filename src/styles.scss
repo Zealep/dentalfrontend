@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    height: 100%; 
+}
+body { 
+    margin: 0; 
+ }
+
+ tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  /* typografia */
+  @import '~@angular/material/theming';
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: 'Titillium, sans-serif' 
+);
+
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);

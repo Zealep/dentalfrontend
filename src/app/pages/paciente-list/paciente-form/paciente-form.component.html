@@ -51,13 +51,12 @@
                 <input type="text" matInput formControlName="email">
             </mat-form-field>
 
+            <button class="btn-form" [disabled]="form.invalid" (click)="onSubmit()" mat-raised-button
+            color="primary">{{labelSubmit}}</button>
+        <button class="btn-form" (click)="onCancel()" mat-raised-button>Cancel</button>
+
         </form>
     </mat-card-content>
-    <mat-card-actions>
-        <button [disabled]="form.invalid" (click)="onSubmit()" mat-raised-button
-            color="primary">{{labelSubmit}}</button>
-        <button (click)="onCancel()" mat-raised-button>Cancel</button>
-    </mat-card-actions>
 </mat-card>
 
     

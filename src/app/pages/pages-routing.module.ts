@@ -15,6 +15,12 @@ import { ReportePagosComponent } from './reporte-pagos/reporte-pagos.component';
 import { ReporteControlesComponent } from './reporte-controles/reporte-controles.component';
 import { PacienteAddComponent } from './paciente-list/paciente-add/paciente-add.component';
 import { PacienteEditComponent } from './paciente-list/paciente-edit/paciente-edit.component';
+import { EgresoComponent } from './egreso/egreso.component';
+import { EgresoAddComponent } from './egreso/egreso-add/egreso-add.component';
+import { EgresoEditComponent } from './egreso/egreso-edit/egreso-edit.component';
+import { IngresoComponent } from './ingreso/ingreso.component';
+import { IngresoAddComponent } from './ingreso/ingreso-add/ingreso-add.component';
+import { IngresoEditComponent } from './ingreso/ingreso-edit/ingreso-edit.component';
 
 
 const routes: Routes = [
@@ -62,20 +68,44 @@ const routes: Routes = [
         component: ProcedimientoEditComponent
       },
       {
-        path:'doctores',
-        component:DoctorComponent,
+        path: 'egresos',
+        component: EgresoComponent
       },
       {
-        path:'doctor/add',
+        path: 'egreso/add',
+        component: EgresoAddComponent
+      },
+      {
+        path: 'egreso/edit/:id',
+        component: EgresoEditComponent
+      },
+      {
+        path: 'ingresos',
+        component: IngresoComponent
+      },
+      {
+        path: 'ingreso/add',
+        component: IngresoAddComponent
+      },
+      {
+        path: 'ingreso/edit/:id',
+        component: IngresoEditComponent
+      },
+      {
+        path: 'doctores',
+        component: DoctorComponent,
+      },
+      {
+        path: 'doctor/add',
         component: DoctorAddComponent
       },
       {
-        path:'doctor/edit/:id',
+        path: 'doctor/edit/:id',
         component: DoctorEditComponent
       }
       ,
       {
-        path: 'pacientes', 
+        path: 'pacientes',
         component: PacienteListComponent
       },
       {

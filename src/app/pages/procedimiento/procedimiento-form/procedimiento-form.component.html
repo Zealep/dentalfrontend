@@ -16,12 +16,10 @@
                     <mat-label>Descripcion</mat-label>
                     <textarea type="text" matInput formControlName="descripcion"></textarea>
                 </mat-form-field>
-
-            </form>
-        </mat-card-content>
-        <mat-card-actions>
-            <button [disabled]="form.invalid" (click)="onSubmit()" mat-raised-button
+            <br>
+                <button class="btn-form" [disabled]="form.invalid" (click)="onSubmit()" mat-raised-button
                 color="primary">{{labelSubmit}}</button>
-            <button (click)="onCancel()" mat-raised-button>Cancel</button>
-        </mat-card-actions>
+            <button class="btn-form" (click)="onCancel()" mat-raised-button>Cancel</button>
+            </form>
+        </mat-card-content>       
     </mat-card>

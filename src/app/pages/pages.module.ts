@@ -27,10 +27,18 @@ import { AgedaComponent } from './ageda/ageda.component';
 import { RecaudacionComponent } from './recaudacion/recaudacion.component';
 import { ReportePagosComponent } from './reporte-pagos/reporte-pagos.component';
 import { ReporteControlesComponent } from './reporte-controles/reporte-controles.component';
+import { EgresoComponent } from './egreso/egreso.component';
+import { IngresoComponent } from './ingreso/ingreso.component';
+import { IngresoFormComponent } from './ingreso/ingreso-form/ingreso-form.component';
+import { IngresoAddComponent } from './ingreso/ingreso-add/ingreso-add.component';
+import { IngresoEditComponent } from './ingreso/ingreso-edit/ingreso-edit.component';
+import { EgresoFormComponent } from './egreso/egreso-form/egreso-form.component';
+import { EgresoAddComponent } from './egreso/egreso-add/egreso-add.component';
+import { EgresoEditComponent } from './egreso/egreso-edit/egreso-edit.component';
 
 
 @NgModule({
-  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent, PacienteListComponent, PacienteFormComponent, PacienteAddComponent, PacienteEditComponent, ProcedimientoEditComponent, ProcedimientoAddComponent, ProcedimientoFormComponent, DoctorComponent, DoctorFormComponent, DoctorAddComponent, DoctorEditComponent, AgedaComponent, RecaudacionComponent, ReportePagosComponent, ReporteControlesComponent],
+  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent, PacienteListComponent, PacienteFormComponent, PacienteAddComponent, PacienteEditComponent, ProcedimientoEditComponent, ProcedimientoAddComponent, ProcedimientoFormComponent, DoctorComponent, DoctorFormComponent, DoctorAddComponent, DoctorEditComponent, AgedaComponent, RecaudacionComponent, ReportePagosComponent, ReporteControlesComponent, EgresoComponent, IngresoComponent, IngresoFormComponent, IngresoAddComponent, IngresoEditComponent, EgresoFormComponent, EgresoAddComponent, EgresoEditComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

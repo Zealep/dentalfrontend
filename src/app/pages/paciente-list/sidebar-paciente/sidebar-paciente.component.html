@@ -2,19 +2,17 @@
 <mat-card>
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>        
-        <mat-card-title>Cristhian Pelaez Villanueva</mat-card-title>
-        <mat-card-subtitle>N° Historia: 1547</mat-card-subtitle>
+        <mat-card-title>{{paciente.nombres}} {{paciente.apellidos}}</mat-card-title>
+        <mat-card-subtitle>N° Historia: {{paciente.nroHistoria}} </mat-card-subtitle>
     </mat-card-header>
 </mat-card>
 
 <mat-nav-list appAccordion>
     <mat-list-item appAccordionLink *ngFor="let menuitem of getMenuitem()" routerLinkActive="selected">
-        <a appAccordionToggle [routerLink]="['/', menuitem.state]">
+        <a appAccordionToggle [routerLink]="['/pages/paciente/ver',paciente.idPaciente, menuitem.state]">
             <mat-icon>{{ menuitem.icon }}</mat-icon> 
             <span class="span-item">{{ menuitem.name }}</span> 
         </a>
-
-        
     </mat-list-item>
 
 </mat-nav-list>

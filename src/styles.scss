@@ -16,7 +16,7 @@ body {
 // Define a custom typography config that overrides the font-family as well as the
 // `headlines` and `body-1` levels.
 $custom-typography: mat-typography-config(
-  $font-family: 'Titillium, sans-serif' 
+  $font-family: 'Titillium Web, sans-serif' 
 );
 
 // Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).

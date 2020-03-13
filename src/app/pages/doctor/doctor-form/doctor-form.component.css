@@ -2,10 +2,14 @@
   display: flex;
   justify-content: center;
 }
-
+.content{
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 3%;
+}
 mat-card,
 form {
-  margin: 50px;
+  margin-left: 10px;
   width: 100%;
 }
 
@@ -14,7 +18,11 @@ mat-form-field {
   margin-right: 2.5%;
 }
 
-mat-card-title,
+mat-card-title{
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
 mat-card-content {
   display: flex;
   justify-content: center;

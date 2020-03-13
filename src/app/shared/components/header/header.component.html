@@ -2,10 +2,13 @@
     <mat-toolbar-row>
       <h1>SYSCLIDENT</h1>
       <span class="menu-spacer"></span>
-      <div>
-        <button mat-button [routerLink]="'/pages/agenda'"> Agenda </button>
-        <button mat-button [routerLink]="'/pages/pacientes'"> Pacientes </button>
-        <button mat-button [routerLink]="'/pages/recaudacion'"> Recaudacion </button>
+      
+        <button mat-button [routerLink]="'/pages/agenda'">
+          <mat-icon>perm_contact_calendar</mat-icon> Agenda</button>
+        <button mat-button [routerLink]="'/pages/pacientes'">
+          <mat-icon>people_outline</mat-icon> Pacientes </button>
+        <button mat-button [routerLink]="'/pages/recaudacion'">
+          <mat-icon>attach_money</mat-icon>Recaudacion </button>
         <button mat-button [matMenuTriggerFor]="menuAdministracion"> 
           Administracion 
           <mat-icon>arrow_drop_down</mat-icon></button>
@@ -25,7 +28,6 @@
             <button [routerLink]="'/pages/reporte-controles'" mat-menu-item >Reporte de controles</button>
             </mat-menu>
   
-      </div>
     </mat-toolbar-row>
   
   </mat-toolbar>

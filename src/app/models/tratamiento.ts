@@ -1,23 +1,17 @@
 import { Doctor } from './doctor';
-import { Paciente } from 'src/app/_model/paciente';
 import { TratamientoDetalle } from './tratamientoDetalle';
+import { Paciente } from './paciente';
 export class Tratamiento {
     idTratamiento : number;
     paciente : Paciente;
     doctor : Doctor;
     tratamientoDetalles : TratamientoDetalle[];
-    mesesTratamiento : number;
-    pagoMensual : number;
-    montoTotal : number;
-    diaPagar : number;
-    comentarios : string;
-    fechaInstaBrackts : Date;
-    fechaInstaContentSup : Date;
-    fechaInstaAparat : Date;
-    fechaRegistro : Date;
-    fechaInicioPago : Date;
-    fechaInstaContentInf : Date;
-    descuento : number;
-    montoTotalDescuento : number;
+    fechaRegistro: Date;
+    nombre: string;
+    etapa: string;
+    monto: number;
+    descuento: number;
+    montoTotal: number;
+    comentarios: string;
     estado : string;
 }

@@ -1,0 +1,77 @@
+
+<mat-card>
+    <mat-card-title>
+        Historial de citas del paciente
+    </mat-card-title>
+    <mat-card-subtitle>
+        <button mat-raised-button color="primary" [routerLink]="['/pages/paciente/ver/',idPaciente,'agendar-cita']">
+          <mat-icon>date_range</mat-icon>  
+          Agendar cita
+        </button>
+    </mat-card-subtitle>
+    <mat-card-content>
+        <div class="contenedor">
+            <table mat-table [dataSource]="dsCitas">
+
+              <ng-container matColumnDef="acciones">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">
+                  <mat-menu #appMenu="matMenu">
+                    <button mat-menu-item (click)='changeEtapa(element)'>
+                      <mat-icon>
+                        update
+                      </mat-icon>Cambiar estado</button>
+                    <button mat-menu-item (click)='editar(element)'>
+                      <mat-icon>
+                        edit
+                      </mat-icon>Modificar cita</button>
+                    <button mat-menu-item (click)='deleteCita(element)'>
+                      <mat-icon>
+                        delete
+                      </mat-icon>Eliminar cita</button>
+                  </mat-menu>
+                  
+                  <button mat-icon-button color="primary" [matMenuTriggerFor]="appMenu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                                                    
+                </td>
+              </ng-container>
+       
+                <ng-container matColumnDef="asunto">
+                  <th mat-header-cell *matHeaderCellDef> Asunto </th>
+                  <td mat-cell *matCellDef="let element"> {{element.asunto}}
+                                                        
+                  </td>
+                </ng-container>
+              
+              
+                <ng-container matColumnDef="dentista">
+                  <th mat-header-cell *matHeaderCellDef> Dentista</th>
+                  <td mat-cell *matCellDef="let element"> Dr(a). {{element.doctor.apellidos}} {{element.doctor.nombres}}</td>
+                </ng-container>
+              
+              
+                <ng-container matColumnDef="fecha">
+                  <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                  <td mat-cell *matCellDef="let element"> {{element.fechaHora | date:'fullDate'}} </td>
+                </ng-container>
+              
+               
+                <ng-container matColumnDef="hora">
+                  <th mat-header-cell *matHeaderCellDef> Hora </th>
+                  <td mat-cell *matCellDef="let element"> {{element.fechaHora | date:'h:mm a'}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="estado">
+                    <th mat-header-cell *matHeaderCellDef> Estado </th>
+                    <td mat-cell *matCellDef="let element" [style.color]="'red'"> {{element.etapa}} </td>
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            </div>
+    
+    </mat-card-content>
+</mat-card>

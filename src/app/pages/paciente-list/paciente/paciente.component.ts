@@ -14,7 +14,7 @@ import { EMPTY } from 'rxjs';
 export class PacienteComponent implements OnInit {
 
   
-  constructor(private route: ActivatedRoute,private service: PacienteService, private snackBar: MatSnackBar) { }
+  constructor() { }
 
   ngOnInit(): void {
 

@@ -8,6 +8,7 @@ export class TratamientoDetalle{
     precio: number;
     cantidad : number;
     piezas : string;
+    total : number;
     observacion : string;
     
 }

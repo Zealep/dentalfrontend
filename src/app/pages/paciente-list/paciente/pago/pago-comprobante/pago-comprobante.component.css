@@ -1,0 +1,28 @@
+.container-pagar{
+    display: flex;
+    flex-direction: column;  
+}
+
+.container-pagar mat-form-field{
+    width: 500px;
+}
+
+
+.header-comprobante{
+    display: flex;
+    margin: 100px;
+}
+
+.body-comprobante{
+    display: flex;
+    margin: 100px;
+}
+
+.item-comprobante{
+    flex: 1 1 0px;
+}
+
+h3 {
+    font-size: bold;
+    color: black;
+}

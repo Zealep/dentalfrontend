@@ -1,0 +1,75 @@
+
+
+  mat-card
+   {
+      margin: 30px;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  tr.mat-footer-row {
+    font-weight: bold;
+  }
+  
+  .mat-table-sticky {
+    border-top: 1px solid #e0e0e0;
+  }
+
+ .container-panel-plan{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+ } 
+
+ .container-panel-plan mat-form-field {
+  flex: 1 1 0px;
+  margin: 0.5rem;
+ }
+
+ .item-p-check{
+   margin-left: 10px;
+ }
+
+
+ .container-procedimientos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:flex-start;
+}
+
+.item-autocomplete{
+  flex: 1 1 100%;
+  margin: 1rem;
+}
+
+.container-panel-plan{
+  display: flex;
+  justify-content: center;
+}
+
+.container-btn-add{
+  margin: 15px;
+  margin-bottom: 30px;
+}
+
+.ortodoncia-container {
+  margin-left: 10px;
+}
+
+.ortodoncia-container > *{
+  width: 30%;
+  margin: 10px;
+}
+.comment {
+  margin-top: 10px;
+  width: 100%;
+}
+
+
+
+
+
+
+ 

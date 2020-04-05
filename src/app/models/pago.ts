@@ -4,9 +4,9 @@ export class Pago{
     idPago: number;
     tratamiento: Tratamiento;
     fechaPago: Date;
-    nroCuota: number;
     monto: number;
+    tipoPago: string;
+    nroComprobante: string;
     comentarios: string;
-    pagoOrtodontico: number;
-    pagoAdicional: number;
+    estado: string;
 }

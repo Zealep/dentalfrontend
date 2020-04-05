@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, throwError } from 'rxjs';
+import { Subject, throwError, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Procedimiento } from '../models/procedimiento';
 import { HOST } from '../shared/var.constant';
@@ -31,8 +31,8 @@ export class ProcedimientoService {
   }
 
 
-  registrar(procedimiento: Procedimiento) {
-    return this.http.post<Respuesta>(`${this.url}/save`, procedimiento)
+  registrar(procedimiento: Procedimiento): Observable<Procedimiento> {
+    return this.http.post<Procedimiento>(`${this.url}/save`, procedimiento)
     .pipe(
       catchError(this.handleError)
     );

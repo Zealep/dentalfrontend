@@ -1,5 +1,5 @@
 
-export class Ingreso {
+export interface Ingreso {
     idIngreso : number;
     fechaIngreso : Date;
     descripcion : string;

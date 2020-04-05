@@ -1,8 +1,14 @@
-import { Examen } from './examen';
+import { Archivo } from './archivo';
+import { Doctor } from './doctor';
+import { Paciente } from './paciente';
 
 export class Imagen{
     idImagen: number;
-    examen: Examen;
-    ruta: string;
-    estado: string;
+    paciente: Paciente;
+    doctor: Doctor;
+    archivos: Archivo[];
+    titulo: string;
+    fechaImagen: Date;
+    comentarios: string;
+    photoBloUrl: any;
 }

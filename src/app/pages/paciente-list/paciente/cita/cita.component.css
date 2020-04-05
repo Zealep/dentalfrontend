@@ -1,0 +1,14 @@
+
+table {
+    width: 100%;
+}
+.nombre-tratamiento{
+    color: deepskyblue;
+}
+
+.contenedor{
+    margin-left: 100px;
+    margin-right: 100px;
+    display: flex;
+   
+}

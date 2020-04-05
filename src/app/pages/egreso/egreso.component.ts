@@ -54,6 +54,7 @@ export class EgresoComponent implements OnInit {
  
    private loadEgresos(){
      this.egresoService.getlistar().subscribe(data => {
+       console.log(data);
        let egresos = JSON.parse(JSON.stringify(data));
        this.dataSource = new MatTableDataSource(egresos);
        this.dataSource.paginator = this.paginator;

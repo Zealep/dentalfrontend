@@ -7,6 +7,15 @@ body {
     margin: 0; 
  }
 
+ th.mat-header-cell {
+  font-weight: bold;
+  color: black;
+}
+
+.mat-card-title{
+  margin-bottom: 25px !important;
+}
+
  tr.example-element-row:not(.example-expanded-row):hover {
     background: whitesmoke;
   }
@@ -18,6 +27,7 @@ body {
 $custom-typography: mat-typography-config(
   $font-family: 'Titillium Web, sans-serif' 
 );
+
 
 // Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
 @include mat-base-typography($custom-typography);

@@ -26,7 +26,7 @@ export class EgresoFormComponent implements OnInit {
     this.form.patchValue(m);
   }
 
-  @Output() submit: EventEmitter<Egreso> = new EventEmitter<Egreso>();
+  @Output() enviar: EventEmitter<Egreso> = new EventEmitter<Egreso>();
   @Output() cancel: EventEmitter<void> = new EventEmitter<void>();
 
 
@@ -38,7 +38,7 @@ export class EgresoFormComponent implements OnInit {
   onSubmit() {
     if(this.form.valid) {
       console.log('model',this.form.value);
-      this.submit.emit(this.form.value); // Enviamos el modelo de datos: Egreso
+      this.enviar.emit(this.form.value); // Enviamos el modelo de datos: Egreso
     } else {
       console.error('Form is invalid');
     }

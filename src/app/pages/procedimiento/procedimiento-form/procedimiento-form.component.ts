@@ -27,7 +27,7 @@ export class ProcedimientoFormComponent implements OnInit {
     this.form.patchValue(m);
   }
 
-  @Output() submit: EventEmitter<Procedimiento> = new EventEmitter<Procedimiento>();
+  @Output() enviar: EventEmitter<Procedimiento> = new EventEmitter<Procedimiento>();
   @Output() cancel: EventEmitter<void> = new EventEmitter<void>();
 
 
@@ -37,9 +37,10 @@ export class ProcedimientoFormComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('entro al onsubmit del procedimiento')
     if(this.form.valid) {
       console.log('model',this.form.value);
-      this.submit.emit(this.form.value); // Enviamos el modelo de datos: Procedimiento
+      this.enviar.emit(this.form.value); // Enviamos el modelo de datos: Procedimiento
     } else {
       console.error('Form is invalid');
     }

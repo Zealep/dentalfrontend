@@ -1,0 +1,41 @@
+<mat-card>
+    <mat-card-title>
+        Datos del control
+    </mat-card-title>
+    <form  [formGroup]="formGroup">
+    <mat-card-content class="container-form">
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Asignar Tratamiento</mat-label>
+                <mat-select formControlName="tratamientoFrm">
+                    <mat-option *ngFor="let tratamiento of tratamientos" [value]="tratamiento.idTratamiento">
+                        {{tratamiento.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha de control</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fechaFrm">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Comentarios y/o observaciones</mat-label>
+                <textarea matInput formControlName="comentariosFrm">
+        
+                </textarea>
+            </mat-form-field>
+        
+    
+    </mat-card-content>
+</form>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="saveForm()">Registrar</button>
+        <button mat-raised-button color="primary" (click)="close()">Cancelar</button>
+
+    </mat-card-actions>
+</mat-card>
+

@@ -1,0 +1,30 @@
+.card-container {
+    display: flex;
+    flex-flow: row wrap;
+    /*justify-content: center;*/
+  }
+  mat-toolbar{
+    
+  }
+  
+  .card-content {
+    width: 280px;
+    box-sizing: border-box;
+    margin: 20px;
+    cursor: pointer;
+  }
+  .card-content mat-form-field {
+      width: 100%;
+  }
+
+  img{
+      height: 210px;
+      width: 280px;
+  }
+  
+  .seleccion-images{
+      margin: 2rem;
+  }
+  .btns-accion{
+      text-align: center;
+  }

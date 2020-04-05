@@ -1,5 +1,5 @@
 
-export class Egreso {
+export interface Egreso {
     idEgreso : number;
     fechaEgreso : Date;
     descripcion : string;

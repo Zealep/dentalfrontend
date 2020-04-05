@@ -5,5 +5,4 @@ export class Control{
     tratamiento: Tratamiento;
     fechaControl: Date;
     comentarios: string;
-    controlOrtodontico: string;
 }

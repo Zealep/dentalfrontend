@@ -1,26 +1,22 @@
-:host {
+  
+  .container-paciente{
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
   }
-  
-  mat-card,
-  form {
-    margin: 50px;
-    width: 100%;
+
+  .item-container, .btn-container{
+    margin-right: 30px;
+    flex: 1 0 35%;
   }
-  
-  mat-form-field {
-    width: 45%;
-    margin-right: 2.5%;
-  }
-  
-  mat-card-title,
-  mat-card-content {
+
+  .btn-container{
     display: flex;
-    justify-content: center;
   }
-  .btn-form{
-    width: 45%;
-    margin-right: 2.5%;
+
+  button{
+    flex: 1 0 35%;
+    margin: 20px;
   }
+
+
 

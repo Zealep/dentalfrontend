@@ -1,0 +1,29 @@
+.container-form{
+    display: flex;
+    margin:50px;
+}
+
+mat-form-field{
+    width: 500px;
+}
+
+.items-container-1{
+    flex: 0 1 35%;
+    margin: 20px;
+}
+.items-container-2{
+    flex: 1 1 0;
+    margin-left: 50px;
+}
+
+.mat-card:not([class*=mat-elevation-z]){
+    box-shadow: none;
+}
+
+.special-date {
+    background-color: red;
+  }
+
+table{
+    width: 100%;
+}

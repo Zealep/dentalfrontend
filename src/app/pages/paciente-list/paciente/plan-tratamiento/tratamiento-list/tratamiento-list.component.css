@@ -1,0 +1,21 @@
+mat-card-title{
+    margin-bottom: 2rem;
+}
+
+mat-card{
+    margin: 2rem;
+}
+
+
+
+.content-tratamiento{
+    display: flex;
+}
+
+.item-tratamiento{
+    flex: 1 1 0px;
+}
+
+.card-tratamiento{
+    cursor: pointer;
+}

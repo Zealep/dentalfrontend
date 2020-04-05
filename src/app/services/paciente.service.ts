@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Subject, throwError } from 'rxjs';
+import { Subject, throwError, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Paciente } from '../models/paciente';
 import { HOST } from '../shared/var.constant';
 import { Respuesta } from '../models/respuesta';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Doctor } from '../models/doctor';
 
 @Injectable({
@@ -38,6 +38,13 @@ export class PacienteService {
       catchError(this.handleError)
     );
   }
+
+  registrarAlertas(paciente: Paciente) {
+    return this.http.post<Respuesta>(`${this.url}/saveAlertas`, paciente)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
   
 
   modificar(paciente: Paciente) {
@@ -54,6 +61,21 @@ export class PacienteService {
     );
   }
 
+  obtenerFoto(idPaciente: number):Observable<Blob>{
+    
+    return this.http.get(`${this.url}/obtenerFoto/${idPaciente}`, 
+       {responseType: 'blob'});
+  }
+
+  uploadFoto(formData: FormData){
+
+        return this.http.post<Respuesta>(`${this.url}/subirFoto`, formData)
+              .pipe(
+                catchError(this.handleError)
+              );
+    
+  }
+  
    private handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {
       console.log('Client error', error.error.message);

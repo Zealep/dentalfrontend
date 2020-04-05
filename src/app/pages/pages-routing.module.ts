@@ -1,3 +1,4 @@
+import { AlertaComponent } from './paciente-list/paciente/alerta/alerta.component';
 import { ProcedimientoEditComponent } from './procedimiento/procedimiento-edit/procedimiento-edit.component';
 import { ProcedimientoAddComponent } from './procedimiento/procedimiento-add/procedimiento-add.component';
 import { ProcedimientoComponent } from './procedimiento/procedimiento.component';

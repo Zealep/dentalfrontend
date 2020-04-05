@@ -15,11 +15,12 @@ export interface Menu {
 
 const MENUITEMS = [
   { state: 'datos', type: 'link', name: 'Datos personales', icon: 'person' },
-  { state: 'examen', type: 'link', name: 'Imagenes y archivos', icon: 'collections' },
-  { state: 'control', type: 'link', name: 'Controles', icon: 'date_range' },
-  { state: 'cita', type: 'link', name: 'Citas', icon: 'alarm_add' },
-  { state: 'tratamiento', type: 'link', name: 'Planes de tratamiento', icon: 'assignment' },
+  { state: 'examenes', type: 'link', name: 'Imagenes y archivos', icon: 'collections' },
+  { state: 'control', type: 'link', name: 'Controles', icon: 'class' },
+  { state: 'cita', type: 'link', name: 'Citas', icon: 'date_range' },
+  { state: 'tratamiento-list', type: 'link', name: 'Planes de tratamiento', icon: 'assignment' },
   { state: 'pago', type: 'link', name: 'Pagos', icon: 'payment' },
+  { state: 'alerta', type: 'link', name: 'Alertas', icon: 'notification_important' }
 ];
 
 
@@ -32,6 +33,7 @@ export class SidebarPacienteComponent implements OnInit {
   
   id: number;
   paciente: Paciente = null;
+  alertas: string;
   
   constructor(private route: ActivatedRoute,private service: PacienteService, private snackBar: MatSnackBar) { }
 
@@ -50,7 +52,17 @@ export class SidebarPacienteComponent implements OnInit {
       .subscribe(paciente => {
         console.log('paciente getById', paciente);
         this.paciente = paciente;
+        this.getAlertas(this.paciente);
       });
+  }
+
+  getAlertas(paciente:Paciente){
+    let alertas: string[] = []
+    for( let p of paciente.alertas){
+      alertas.push(p.nombre)
+    }
+    console.log(alertas);
+    this.alertas = alertas.toString();
   }
 
   getMenuitem(): Menu[] {

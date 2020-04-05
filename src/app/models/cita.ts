@@ -1,11 +1,14 @@
-import { Paciente } from 'src/app/_model/paciente';
+import { Doctor } from './doctor';
+import { Paciente } from './paciente';
+
 export class Cita{
     
     idCita: number;
     paciente: Paciente;
-    fechaCita: Date;
-    horaCita: string;
-    horario: string;
+    doctor: Doctor;
+    fechaHora: Date;
     asunto: string;
+    etapa: string;
+    estado: string;
 
 }

@@ -1,0 +1,30 @@
+.card-container {
+    display: flex;
+    flex-flow: row wrap;
+    /*justify-content: center;*/
+  }
+  mat-toolbar{
+    
+  }
+  
+  .card-content {
+    width: 380px;
+    box-sizing: border-box;
+    margin: 20px;
+    cursor: pointer;
+  }
+
+  img{
+      height: 310px;
+  }
+  
+  .seleccion-images{
+      margin: 2rem;
+  }
+  .btns-accion{
+      text-align: center;
+  }
+
+  .btn-principal{
+      margin: 20px;
+  }

@@ -31,7 +31,7 @@ export class DoctorFormComponent implements OnInit {
     this.form.patchValue(m);
   }
 
-  @Output() submit: EventEmitter<Doctor> = new EventEmitter<Doctor>();
+  @Output() enviar: EventEmitter<Doctor> = new EventEmitter<Doctor>();
   @Output() cancel: EventEmitter<void> = new EventEmitter<void>();
 
 
@@ -43,7 +43,7 @@ export class DoctorFormComponent implements OnInit {
   onSubmit() {
     if(this.form.valid) {
       console.log('model',this.form.value);
-      this.submit.emit(this.form.value); // Enviamos el modelo de datos: Doctor
+      this.enviar.emit(this.form.value); // Enviamos el modelo de datos: Doctor
     } else {
       console.error('Form is invalid');
     }

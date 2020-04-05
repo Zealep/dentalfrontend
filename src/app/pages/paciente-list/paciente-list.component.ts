@@ -18,7 +18,7 @@ import { ConfirmDialogModel } from 'src/app/shared/models/confirm-dialog-model';
 export class PacienteListComponent implements OnInit {
 
   lista: Paciente[] = [];
-  displayedColumns:string[] = ['idPaciente', 'apellidos', 'nombres','dni','nroHistoria','fechaNacimiento','telefono','celular','direccion','lugarProcedencia','email','acciones'];
+  displayedColumns:string[] = ['idPaciente', 'apellidos', 'nombres','dni','nroHistoria','telefono','celular','email','acciones'];
   dataSource: MatTableDataSource<Paciente>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

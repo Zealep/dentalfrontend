@@ -1,0 +1,51 @@
+<mat-card>
+    <mat-card-title>Buscar procedimiento dental</mat-card-title>
+ <mat-card-content  class="dialog-content"> 
+    <mat-form-field class="item-autocomplete" appearance="outline">
+      <input type="text" placeholder="Escribe el procedimiento que deseas buscar" matInput
+        [matAutocomplete]="autoProcedimiento" [formControl]="myControlProcedimiento">
+        <span matPrefix>
+          <mat-icon>search</mat-icon>
+        </span>
+      <mat-autocomplete #autoProcedimiento="matAutocomplete" [displayWith]="displayFnProcedimiento"
+        (optionSelected)="seleccionarProcedimiento($event)">
+        <mat-option *ngFor="let p of filteredOptionsProcedimiento | async" [value]="p">
+          <span>{{ p.nombre}}</span> &nbsp; <small [style.color]="'red'">S/. {{p.costo}}</small>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    
+      <mat-form-field appearance="outline" class="item-proc">
+        <mat-label>Precio del procedimiento </mat-label>
+        <input matInput type="text" class="example-right-align" [(ngModel)]="precioModel">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="item-proc">
+        <mat-label>Cantidad de procedimientos</mat-label>
+        <input matInput type="number" class="example-right-align" [(ngModel)]="cantidadModel">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="item-proc">
+        <mat-label>Piezas dentales</mat-label>
+        <input matInput type="text" class="example-right-align" [(ngModel)]="piezasModel">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="item-proc">
+        <mat-label>Observacion</mat-label>
+        <input matInput type="text" class="example-right-align" [(ngModel)]="observacionModel">
+      </mat-form-field>
+    </mat-card-content>
+<mat-card-actions>
+      <button mat-raised-button color="primary" (click)="send()">
+        <i class="material-icons">
+          add
+        </i> Agregar
+      </button>
+
+      <button mat-raised-button (click)="close()">
+        <i class="material-icons">
+          close
+        </i> Salir
+      </button>
+    </mat-card-actions>
+</mat-card>

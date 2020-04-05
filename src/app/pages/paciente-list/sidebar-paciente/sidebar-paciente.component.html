@@ -1,15 +1,28 @@
-
+<div *ngIf="paciente">
 <mat-card>
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>        
-        <mat-card-title >CRISTHIAN JORDAN PELAEZ VILLANUEVA</mat-card-title>
-        <mat-card-subtitle>N° Historia: paciente.nroHistoria </mat-card-subtitle>
+    <mat-card-header>    
+        <mat-card-title > {{paciente.apellidos}} {{paciente.nombres}} </mat-card-title>
+        <mat-card-subtitle><span>
+            <mat-icon>
+                account_box
+            </mat-icon>
+            N° Historia: {{paciente.nroHistoria}}
+        </span>
+        <br>
+        <span [style.color]="'red'">
+            <mat-icon>
+                notification_important
+            </mat-icon>
+             {{alertas}}
+            </span>
+            </mat-card-subtitle>
     </mat-card-header>
+  
 </mat-card>
 
 <mat-nav-list appAccordion>
     <mat-list-item appAccordionLink *ngFor="let menuitem of getMenuitem()" routerLinkActive="selected">
-        <a appAccordionToggle [routerLink]="['/pages/paciente/ver',1, menuitem.state]">
+        <a appAccordionToggle [routerLink]="['/pages/paciente/ver',paciente.idPaciente, menuitem.state]">
             <mat-icon>{{ menuitem.icon }}</mat-icon> 
             <span class="span-item">{{ menuitem.name }}</span> 
         </a>
@@ -18,3 +31,4 @@
   
 
 </mat-nav-list>
+</div>

@@ -1,1 +1,81 @@
-<p>datos-personales works!</p>
+<mat-card>
+    <mat-card-title>Datos personales del paciente</mat-card-title>
+
+    <mat-card-content>
+    
+       
+    <div class="datos-container">
+        <form [formGroup]="form">
+        <mat-form-field appearance="outline"> 
+            <mat-label>Apellidos</mat-label>
+            <input type="text" matInput formControlName="apellidos">
+        </mat-form-field>
+           
+            <mat-form-field appearance="outline"> 
+                <mat-label>Nombres</mat-label>
+                <input type="text" matInput formControlName="nombres">
+            </mat-form-field>
+            <mat-form-field appearance="outline"> 
+                <mat-label>DNI</mat-label>
+                <input type="text" matInput formControlName="dni">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline"> 
+                <mat-label>N° Historia</mat-label>
+                <input type="text" matInput formControlName="nroHistoria">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Telefono</mat-label>
+                <input type="text" matInput formControlName="telefono">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Celular</mat-label>
+                <input type="text" matInput formControlName="celular">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Direccion</mat-label>
+                <input type="text" matInput formControlName="direccion">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Lugar de procedencia</mat-label>
+                <input type="text" matInput formControlName="lugarProcedencia">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input type="text" matInput formControlName="email">
+            </mat-form-field>
+            
+            <button class="btn-form" [disabled]="form.invalid" (click)="save()" mat-raised-button
+            color="primary">
+            <mat-icon>save</mat-icon>
+            Grabar</button>
+        </form>
+
+        </div>
+        <div class="image-content">
+            <img mat-card-image [src]="photoBlobUrl">
+            
+            <button mat-raised-button color="primary" (click)="fileInput.click()">
+                <input #fileInput type="file" (change)="fileChange($event)" style="display:none;">
+                <mat-icon>file_upload</mat-icon>
+                Subir foto
+          </button>  
+          
+        </div>
+
+        
+    </mat-card-content>
+</mat-card>
+
+    

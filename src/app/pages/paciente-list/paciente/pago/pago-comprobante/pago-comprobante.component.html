@@ -1,0 +1,107 @@
+<mat-vertical-stepper [linear]="true" #stepper>
+  <mat-step [stepControl]="firstFormGroup" [editable]="editRegistroPago">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Datos del pago a realizar</ng-template>
+
+      <mat-card>
+        <mat-card-content class="container-pagar">
+
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha de pago</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="fechaPago" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Monto a pagar </mat-label>
+            <input matInput formControlName="montoPagar" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Tipo de pago</mat-label>
+            <mat-select matNativeControl formControlName="tipoPago" required>
+              <mat-option value="EFECTIVO">Efectivo</mat-option>
+              <mat-option value="VISA">Visa</mat-option>
+              <mat-option value="TRANSFERENCIA">Transferencia</mat-option>
+              <mat-option value="DEPOSITO">Deposito</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+         
+
+          <mat-form-field appearance="outline">
+            <mat-label>Numero de comprobante</mat-label>
+            <input matInput formControlName="numeroComprobante" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Comentarios</mat-label>
+            <textarea matInput formControlName="comentarios"> </textarea>
+          </mat-form-field>
+
+          <div>
+            <button mat-raised-button color="primary" (click)="grabarPago(stepper)">Registrar</button>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+
+
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Comprobante de pago</ng-template>
+
+    <div class="container-comprobante">
+      <div class="header-comprobante">
+        <div class="item-comprobante">
+          <h3>CLIENTE</h3>
+          <p> {{clienteComprobante}} </p>
+
+        </div>
+
+        <div class="item-comprobante">
+          <h3>DOCUMENTO IDENTIDAD</h3>
+          <p> {{nroDocumentoComprobante}} </p>
+        </div>
+
+        <div class="item-comprobante">
+          <h3> FECHA COMPROBANTE</h3>
+          <p> {{fechaComprobante | date:'dd-MM-yyyy'}} </p>
+        </div>
+      </div>
+      <div class="body-comprobante">
+        
+          <div class="item-comprobante">
+            <h3> DESCRIPCION</h3>
+            <p> {{descripcionComprobante}} </p>
+            <p> {{doctorComprobante}} </p>
+          </div>
+          <div class="item-comprobante">
+            <h3> TIPO PAGO</h3>
+            <p> {{tipoPagoComprobante}} </p>
+          </div>
+          <div class="item-comprobante">
+            <h3> FECHA PAGO</h3>
+            <p> {{fechaPagoComprobante | date:'dd-MM-yyyy' }} </p>
+          </div>
+
+          <div class="item-comprobante">
+            <h3> N° COMPROBANTE</h3>
+            <p> {{numeroComprobante}} </p>
+          </div>
+
+          <div class="item-comprobante">
+            <h3> MONTO PAGADO</h3>
+            <p> S/. {{montoPagadoComprobante}} </p>
+          </div>
+
+      </div>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" (click)="stepper.reset()">Reiniciar</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

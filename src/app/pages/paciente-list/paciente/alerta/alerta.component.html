@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title>
+        Alertas del paciente
+    </mat-card-title>
+    <mat-card-subtitle>
+        <button mat-raised-button (click)="openDialog()">
+            Alertas predeterminadas
+        </button>
+    </mat-card-subtitle>
+    <form [formGroup]="alertasForm">
+    <mat-card-content>
+        <ng-container formArrayName="alertas">
+        <section *ngFor="let item of alertas; let i = index">
+            <mat-checkbox [value]="item.idAlerta" (change)="toggle($event)">{{item.nombre}}</mat-checkbox> 
+        </section>
+        </ng-container> 
+
+        <button mat-raised-button color="primary" (click)="saveAlertas()">
+            Grabar
+        </button>
+    </mat-card-content>
+    </form>
+</mat-card>

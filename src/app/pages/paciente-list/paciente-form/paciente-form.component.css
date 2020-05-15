@@ -1,16 +1,17 @@
   
   .container-paciente{
     display: flex;
-    flex-wrap: wrap;
-  }
-
-  .item-container, .btn-container{
-    margin-right: 30px;
-    flex: 1 0 35%;
+    flex-direction: column;
   }
 
   .btn-container{
     display: flex;
+
+  }
+
+  mat-card{
+   text-align: center;
+   margin: 1rem 25%;
   }
 
   button{

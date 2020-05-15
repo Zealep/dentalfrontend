@@ -96,7 +96,6 @@ export class ExamenComponent implements OnInit {
   }
 
   delete(index:number){
-    console.log('delete index',index);
       this.urls.splice(index,1);
   }
 

@@ -57,11 +57,11 @@ export class AlertaComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.getAlertas();
     });
   }
 
   toggle(event:any){
-    console.log('event',event);
     const alertas = <FormArray>this.alertasForm.get('alertas') as FormArray;
 
     if(event.checked) {
@@ -97,7 +97,6 @@ export class AlertaComponent implements OnInit {
      
      this.pacienteService.registrarAlertas(this.paciente)
      .subscribe(result =>{
-       console.log('Se registro alertas',this.paciente);
        this.snackBar.open('Alertas actualizadas del paciente','Close',
        {
          duration:4000

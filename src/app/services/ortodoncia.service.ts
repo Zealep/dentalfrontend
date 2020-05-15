@@ -65,6 +65,13 @@ export class OrtodonciaService {
     );
   }
 
+  getNews() {        
+    return this.http.get<Ortodoncia[]>(`${this.url}/news`)
+    .pipe(
+      catchError(this.handleError)
+    );  
+  }
+
    private handleError(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {
       console.log('Client error', error.error.message);

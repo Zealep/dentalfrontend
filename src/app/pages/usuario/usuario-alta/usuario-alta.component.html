@@ -1,0 +1,49 @@
+<mat-card>
+  <mat-card-title>
+
+  </mat-card-title>
+  <form [formGroup]="form">
+  <mat-card-content>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>APELLIDOS Y NOMBRES</mat-label>
+        <input matInput formControlName="nombre" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>USERNAME</mat-label>
+        <input type="text" matInput formControlName="username" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>PASSWORD</mat-label>
+        <textarea type="text" matInput formControlName="password" required></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select formControlName="rol" required>
+          <mat-option value="ADMIN">ADMINISTRADOR</mat-option>
+          <mat-option value="OPERATOR">OPERADOR</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+   
+    </mat-card-content>
+</form>
+  <mat-card-actions>
+    <button class="btn-form" [disabled]="form.invalid" (click)="save()" mat-raised-button color="primary">
+        <mat-icon>
+          save
+        </mat-icon>
+        Guardar
+      </button>
+      <button class="btn-form" (click)="onCancel()" color="primary" mat-raised-button>
+        <mat-icon>
+          cancel
+        </mat-icon>
+        Cancelar
+      </button>
+  </mat-card-actions>
+</mat-card>

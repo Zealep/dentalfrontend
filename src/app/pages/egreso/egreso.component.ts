@@ -18,7 +18,7 @@ import { ConfirmDialogModel } from 'src/app/shared/models/confirm-dialog-model';
 export class EgresoComponent implements OnInit {
 
   lista: Egreso[] = [];
-  displayedColumns:string[] = ['idEgreso', 'fechaEgreso', 'descripcion','costo','acciones'];
+  displayedColumns:string[] = ['fechaEgreso', 'descripcion','costo','acciones'];
   dataSource: MatTableDataSource<Egreso>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -54,7 +54,6 @@ export class EgresoComponent implements OnInit {
  
    private loadEgresos(){
      this.egresoService.getlistar().subscribe(data => {
-       console.log(data);
        let egresos = JSON.parse(JSON.stringify(data));
        this.dataSource = new MatTableDataSource(egresos);
        this.dataSource.paginator = this.paginator;
@@ -65,7 +64,6 @@ export class EgresoComponent implements OnInit {
    private sendDeleteRequest(egreso: Egreso) {
      this.egresoService.eliminar(egreso.idEgreso)
      .subscribe(response => {
-       console.log('Egreso has been deleted', response);
        this.loadEgresos();
        this.snackBar.open('Egreso eliminado', 'Close', {
          duration: 3000

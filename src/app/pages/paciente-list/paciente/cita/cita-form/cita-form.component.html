@@ -7,7 +7,7 @@
     
             <mat-form-field appearance="outline">
                 <mat-label>Asignar Doctor</mat-label>
-                <mat-select formControlName="doctorFrm">
+                <mat-select formControlName="doctorFrm" required>
                     <mat-option *ngFor="let doctor of doctors" [value]="doctor.idDoctor">
                         Dr(a). {{doctor.apellidos}} {{doctor.nombres}}
                     </mat-option>
@@ -16,7 +16,7 @@
         
         
             <mat-form-field>
-                <input matInput [ngxMatDatetimePicker]="picker" placeholder="Fecha y hora"  formControlName="fechaFrm">
+                <input matInput [ngxMatDatetimePicker]="picker" placeholder="Fecha y hora"  formControlName="fechaFrm" required>
                 <mat-datepicker-toggle matSuffix [for]="picker">
                 </mat-datepicker-toggle>
                 <ngx-mat-datetime-picker #picker [showSpinners]="showSpinners" [color]="color"
@@ -27,7 +27,7 @@
             
             <mat-form-field>
                 <mat-label>Estado</mat-label>
-                <mat-select formControlName="estadoFrm">
+                <mat-select formControlName="estadoFrm" required>
                     <mat-option value="PENDIENTE">Pendiente</mat-option>
                     <mat-option value="ATENDIDA">Atentida</mat-option>
                     <mat-option value="CANCELADA">Cancelada</mat-option>
@@ -45,8 +45,12 @@
     </mat-card-content>
 </form>
     <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="saveForm()">Registrar</button>
-        <button mat-raised-button color="primary" (click)="close()">Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="formGroup.invalid" (click)="saveForm()">
+            <mat-icon>save</mat-icon>
+            Registrar</button>
+        <button mat-raised-button color="primary" (click)="close()">
+            <mat-icon>cancel</mat-icon>
+            Cancelar</button>
 
     </mat-card-actions>
 </mat-card>

@@ -34,17 +34,14 @@ export class EgresoEditComponent implements OnInit {
         })
       )
       .subscribe(egreso => {
-        console.log('procedimiento', egreso);
         this.egreso = egreso;
       });
   }
 
   submit(egreso : Egreso) {
     egreso.idEgreso = this.id;
-    console.log('Going to update', egreso);
     this.service.modificar(egreso)
       .subscribe(result => {
-        console.log('Update finished', result);
         this.router.navigate(['/pages/egresos']);
         this.snackBar.open('El egreso fue modificado', 'Close', {
           duration: 3000

@@ -1,3 +1,6 @@
+import { AddOdontogramaComponent } from './odontograma/add-odontograma/add-odontograma.component';
+import { OdontogramaComponent } from './odontograma/odontograma.component';
+import { Odontograma } from './../../../models/odontograma';
 import { AlertaComponent } from './alerta/alerta.component';
 import { AgendarCitaComponent } from './cita/agendar-cita/agendar-cita.component';
 import { PagoComprobanteComponent } from './pago/pago-comprobante/pago-comprobante.component';
@@ -67,7 +70,16 @@ const routes: Routes = [
         {
           path: 'alerta',
           component: AlertaComponent
+        },
+        {
+          path: 'odontograma',
+          component: OdontogramaComponent
+        },
+        {
+          path: 'add-odontograma',
+          component: AddOdontogramaComponent
         }
+
       ]
     }
    

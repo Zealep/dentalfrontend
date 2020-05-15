@@ -19,7 +19,6 @@ export class PacienteAddComponent implements OnInit {
   ngOnInit(): void {
   }
   submit(paciente: Paciente) {
-    console.log('Going to save', paciente);
     this.service.registrar(paciente)
       .pipe(
         catchError(error => {
@@ -31,7 +30,6 @@ export class PacienteAddComponent implements OnInit {
         })
       )
       .subscribe(result => {
-        console.log('The paciente has been added', result);
         this.router.navigate(['/pages/pacientes']);
         // mensaje de confirmacion
         this.snackBar.open('Paciente fue registrado', 'Close', {

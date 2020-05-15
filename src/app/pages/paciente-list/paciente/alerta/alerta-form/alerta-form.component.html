@@ -5,7 +5,10 @@
             <mat-label>Nombre de alerta</mat-label>
             <input matInput [(ngModel)]="nombreAlerta">
         </mat-form-field>
-        <button mat-raised-button (click)="saveAlerta()">
+        <button class="add-button" color="primary" mat-raised-button (click)="saveAlerta()">
+            <mat-icon>
+                add
+            </mat-icon>
             Agregar
         </button>
 
@@ -16,6 +19,9 @@
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button color="primary" (click)="close()"> 
+            <mat-icon>
+                close
+            </mat-icon>
             Cerrar
         </button>
     </mat-card-actions>

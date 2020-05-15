@@ -8,6 +8,11 @@
       <mat-icon>add</mat-icon>
       Nuevo paciente
     </button>
+
+    <button mat-raised-button color="primary" (click)="downloadExcel()">
+      <mat-icon>attachment</mat-icon>
+      Exportar excel
+    </button>
   </mat-card-subtitle>
   <mat-card-content>
 
@@ -17,11 +22,6 @@
     </mat-form-field>
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
-
-        <ng-container matColumnDef="idPaciente">
-          <th mat-header-cell *matHeaderCellDef> ID </th>
-          <td mat-cell *matCellDef="let element"> {{element.idPaciente}} </td>
-        </ng-container>
 
         <ng-container matColumnDef="apellidos">
           <th mat-header-cell *matHeaderCellDef> Apellidos </th>

@@ -9,9 +9,9 @@
         <table mat-table [dataSource]="dsTratamientosPagar">
 
             <ng-container matColumnDef="accion">
-                <th mat-header-cell *matHeaderCellDef>  </th>
+                <th mat-header-cell *matHeaderCellDef>ACCIONES</th>
                 <td mat-cell *matCellDef="let element">
-                    <button mat-icon-button color="primary" (click)="linkPagoComprobante(element.idTratamiento)">
+                    <button mat-icon-button color="accent" (click)="linkPagoComprobante(element.idTratamiento)">
                         <mat-icon>payment</mat-icon>
                         PAGAR
                       </button>

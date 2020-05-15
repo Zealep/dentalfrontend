@@ -4,28 +4,36 @@
         <form [formGroup]="form">
 
             <mat-form-field appearance="outline">
-                <mat-label>Fecha de Egreso</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="fechaEgreso">
+                <mat-label>Fecha del Egreso</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fechaEgreso" required>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>Costo</mat-label>
-                <input type="text" matInput formControlName="costo">
+                <mat-label>Costo del egreso</mat-label>
+                <input type="number" matInput formControlName="costo" required>
                 <span matPrefix>S/. &nbsp;</span>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>Descripcion</mat-label>
-                <textarea type="text" matInput formControlName="descripcion"></textarea>
+                <mat-label>Descripcion y/o informacion</mat-label>
+                <textarea type="text" matInput formControlName="descripcion" required></textarea>
             </mat-form-field>
 
             <br>
 
             <button class="btn-form" [disabled]="form.invalid" (click)="onSubmit()" mat-raised-button
-                color="primary">{{labelSubmit}}</button>
-            <button class="btn-form" (click)="onCancel()" mat-raised-button>Cancel</button>
+                color="primary">
+                <mat-icon>
+                    save
+                </mat-icon>
+                {{labelSubmit}}</button>
+            <button class="btn-form" (click)="onCancel()" color="primary" mat-raised-button>
+                <mat-icon>
+                    cancel
+                </mat-icon>
+                Cancelar</button>
 
         </form>
     </mat-card-content>

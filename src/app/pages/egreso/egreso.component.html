@@ -18,16 +18,10 @@
         <div class="mat-elevation-z8">
           <table mat-table [dataSource]="dataSource" matSort>
           
-            <!-- Position Column -->
-            <ng-container matColumnDef="idEgreso">
-              <th mat-header-cell *matHeaderCellDef> ID </th>
-              <td mat-cell *matCellDef="let element"> {{element.idEgreso}} </td>
-            </ng-container>
           
-            <!-- Name Column -->
             <ng-container matColumnDef="fechaEgreso">
               <th mat-header-cell *matHeaderCellDef>  F. Egreso </th>
-              <td mat-cell *matCellDef="let element"> {{element.fechaEgreso}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.fechaEgreso | date:'longDate'}} </td>
             </ng-container>
 
             <ng-container matColumnDef="descripcion">
@@ -35,7 +29,6 @@
                 <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
               </ng-container>
           
-            <!-- Weight Column -->
             <ng-container matColumnDef="costo">
               <th mat-header-cell *matHeaderCellDef> Costo </th>
               <td mat-cell *matCellDef="let element"> S/. {{element.costo}} </td>

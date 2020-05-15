@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-title>REPORTE DE FINANZAS</mat-card-title>
+     
+    <mat-form-field appearance="fill">
+        <mat-label>Fecha Inicio</mat-label>
+        <input matInput [(ngModel)]="fechaInicio" [matDatepicker]="picker" >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Fecha Fin</mat-label>
+        <input matInput [(ngModel)]="fechaFin" [matDatepicker]="picker2" >
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="getMontos()">
+        <mat-icon>
+            search
+        </mat-icon>
+    </button>
+
+    <div class="container-cards">
+        <mat-card [style.background]="'#1976d2'">
+            <mat-card-title>S/. {{totalIngresos}}</mat-card-title>
+            <mat-card-subtitle>INGRESOS</mat-card-subtitle>
+        </mat-card>
+
+        <mat-card [style.background]="'#1976d2'">
+            <mat-card-title>S/. {{totalEgresos}}</mat-card-title>
+            <mat-card-subtitle>EGRESOS</mat-card-subtitle>
+        </mat-card>
+
+        <mat-card [style.background]="'#d32f2f'">
+            <mat-card-title>S/. {{totalSaldo}}</mat-card-title>
+            <mat-card-subtitle>SALDO</mat-card-subtitle>
+        </mat-card>
+    </div>
+</mat-card>

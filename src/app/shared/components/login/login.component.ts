@@ -1,7 +1,12 @@
-import { User } from './../../../models/user';
+import { catchError } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TOKEN_NAME } from './../../var.constant';
+import { LoginService } from './../../../services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EMPTY } from 'rxjs';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'zp-login',
@@ -15,7 +20,9 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required)
   });
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private loginService: LoginService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -26,13 +33,25 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  private validateLogin(user: User) {
-    console.log('user', user);
-    if(user.username === 'admin' && user.password === 'admin') {
-      // Redireccion: /products
-      this.router.navigate(['/products']);
-    } else {
-      console.error('Credenciales Invalidas');
-    }
+  private validateLogin(user: Usuario) {
+    this.loginService.login(user.username,user.password)
+    .pipe(
+      catchError(response => {
+        console.log('error captcheado lgoin',response);
+      this.snackBar.open(response, 'Cerrar', {
+        duration: 3000
+      });
+      // catch & replace
+      return EMPTY;
+      })
+      )
+    .subscribe(data =>{
+      if(data){
+        let token = JSON.stringify(data);
+        sessionStorage.setItem(TOKEN_NAME, token);
+        this.router.navigate(['pages']);
+      }
+    });
+
   }
 }

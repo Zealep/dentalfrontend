@@ -1,3 +1,6 @@
+import { LoginService } from './../../../services/login.service';
+import { Empresa } from './../../../models/empresa';
+import { EmpresaService } from './../../../services/empresa.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  empresa: string = 'SYSCLIDENT';
+
+  constructor(private empresaService: EmpresaService,
+    private loginService: LoginService) { }
 
   ngOnInit(): void {
+    this.getEmpresa();
+  }
+
+  getEmpresa(){
+    this.empresaService.getlistar()
+    .subscribe(results=>{
+      if(results.length > 0){
+        this.empresa = results[0].nombre;
+      }
+    })
+  }
+  
+  cerrarSesion(){
+    this.loginService.cerrarSesion();
   }
 
 }

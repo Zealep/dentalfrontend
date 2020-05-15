@@ -18,7 +18,7 @@ import { ConfirmDialogModel } from 'src/app/shared/models/confirm-dialog-model';
 export class PacienteListComponent implements OnInit {
 
   lista: Paciente[] = [];
-  displayedColumns:string[] = ['idPaciente', 'apellidos', 'nombres','dni','nroHistoria','telefono','celular','email','acciones'];
+  displayedColumns:string[] = ['apellidos', 'nombres','dni','nroHistoria','telefono','celular','email','acciones'];
   dataSource: MatTableDataSource<Paciente>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -63,11 +63,25 @@ export class PacienteListComponent implements OnInit {
    private sendDeleteRequest(paciente: Paciente) {
      this.pacienteService.eliminar(paciente.idPaciente)
      .subscribe(response => {
-       console.log('Paciente fue eliminado', response);
        this.loadPacientes();
        this.snackBar.open('Paciente eliminado', 'Close', {
          duration: 3000
        });
+     });
+   }
+
+   downloadExcel(){
+     this.pacienteService.descargarExcel()
+     .subscribe(result =>{
+      const url = window.URL.createObjectURL(result);
+      const a = document.createElement('a');
+      a.setAttribute('style', 'display:none;');
+      document.body.appendChild(a);
+      a.href = url;
+      a.download = 'pacientes.xls';
+      a.click();
+      return url;
+      
      });
    }
 

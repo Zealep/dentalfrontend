@@ -1,3 +1,7 @@
+import { GuardService } from './../services/guard.service';
+import { EmpresaComponent } from './empresa/empresa.component';
+import { ReporteFinanzasComponent } from './reporte-finanzas/reporte-finanzas.component';
+import { AgendaComponent } from './agenda/agenda.component';
 import { AlertaComponent } from './paciente-list/paciente/alerta/alerta.component';
 import { ProcedimientoEditComponent } from './procedimiento/procedimiento-edit/procedimiento-edit.component';
 import { ProcedimientoAddComponent } from './procedimiento/procedimiento-add/procedimiento-add.component';
@@ -10,8 +14,6 @@ import { PacienteListComponent } from './paciente-list/paciente-list.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
 import { DoctorEditComponent } from './doctor/doctor-edit/doctor-edit.component';
-import { AgedaComponent } from './ageda/ageda.component';
-import { RecaudacionComponent } from './recaudacion/recaudacion.component';
 import { ReportePagosComponent } from './reporte-pagos/reporte-pagos.component';
 import { ReporteControlesComponent } from './reporte-controles/reporte-controles.component';
 import { PacienteAddComponent } from './paciente-list/paciente-add/paciente-add.component';
@@ -22,6 +24,7 @@ import { EgresoEditComponent } from './egreso/egreso-edit/egreso-edit.component'
 import { IngresoComponent } from './ingreso/ingreso.component';
 import { IngresoAddComponent } from './ingreso/ingreso-add/ingreso-add.component';
 import { IngresoEditComponent } from './ingreso/ingreso-edit/ingreso-edit.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 
 const routes: Routes = [
@@ -36,86 +39,116 @@ const routes: Routes = [
       },
       {
         path: 'dashboard', // /pages/dashboard
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'agenda',
-        component: AgedaComponent
+        component: AgendaComponent,
+        canActivate:[GuardService]
       },
       {
-        path: 'recaudacion',
-        component: RecaudacionComponent
+        path: 'empresa',
+        component: EmpresaComponent,
+        canActivate:[GuardService]
+      },
+      {
+        path: 'usuario',
+        component: UsuarioComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'reporte-pagos',
-        component: ReportePagosComponent
+        component: ReportePagosComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'reporte-controles',
-        component: ReporteControlesComponent
+        component: ReporteControlesComponent,
+        canActivate:[GuardService]
+      },
+      {
+        path: 'reporte-finanzas',
+        component: ReporteFinanzasComponent,
+        canActivate:[GuardService]
       },
 
       {
         path: 'procedimientos', // /pages/procedimiento
-        component: ProcedimientoComponent
+        component: ProcedimientoComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'procedimiento/add',
-        component: ProcedimientoAddComponent
+        component: ProcedimientoAddComponent,
+        canActivate:[GuardService]
       },
 
       {
         path: 'procedimiento/edit/:id',
-        component: ProcedimientoEditComponent
+        component: ProcedimientoEditComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'egresos',
-        component: EgresoComponent
+        component: EgresoComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'egreso/add',
-        component: EgresoAddComponent
+        component: EgresoAddComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'egreso/edit/:id',
-        component: EgresoEditComponent
+        component: EgresoEditComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'ingresos',
-        component: IngresoComponent
+        component: IngresoComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'ingreso/add',
-        component: IngresoAddComponent
+        component: IngresoAddComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'ingreso/edit/:id',
-        component: IngresoEditComponent
+        component: IngresoEditComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'doctores',
         component: DoctorComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'doctor/add',
-        component: DoctorAddComponent
+        component: DoctorAddComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'doctor/edit/:id',
-        component: DoctorEditComponent
+        component: DoctorEditComponent,
+        canActivate:[GuardService]
       }
       ,
       {
         path: 'pacientes',
-        component: PacienteListComponent
+        component: PacienteListComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'paciente/add',
-        component: PacienteAddComponent
+        component: PacienteAddComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'paciente/edit/:id',
-        component: PacienteEditComponent
+        component: PacienteEditComponent,
+        canActivate:[GuardService]
       },
       {
         path: 'paciente',

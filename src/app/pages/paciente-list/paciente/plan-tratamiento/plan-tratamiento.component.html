@@ -1,5 +1,14 @@
 <mat-card>
-  <mat-card-title>Planes de tratamiento del paciente</mat-card-title>
+  <mat-card-title>
+    <span>Planes de tratamiento del paciente</span>
+    <span class="example-spacer"> </span>
+    <button *ngIf="idTratamiento!=0" mat-icon-button (click)="generarContrato()">
+      <mat-icon >
+        print
+      </mat-icon>
+    </button>
+
+  </mat-card-title>
   <mat-card-content>
     <form [formGroup]="form">
     <mat-card>
@@ -14,14 +23,15 @@
        
           <mat-checkbox class="item-p-check" [(ngModel)]="planOrtodoncia" [ngModelOptions]="{standalone: true}">Es presupuesto de ortodoncia?</mat-checkbox>
           <div class="container-panel-plan">
-          <mat-form-field appearance="outline" class="item-p-nombre">
+          
+            <mat-form-field appearance="outline" class="item-p-nombre">
             <mat-label>Nombre del plan de tratamiento</mat-label>
-            <input matInput type="text" formControlName="nombreForm">
+            <input matInput type="text" formControlName="nombreForm" required>
           </mat-form-field> 
 
           <mat-form-field appearance="outline">
             <mat-label>Asignar Doctor</mat-label>
-            <mat-select formControlName="doctorForm">
+            <mat-select formControlName="doctorForm" required>
               <mat-option *ngFor="let doctor of doctors" [value]="doctor.idDoctor">
                 Dr(a). {{doctor.apellidos}} {{doctor.nombres}}
               </mat-option>
@@ -30,7 +40,7 @@
 
           <mat-form-field appearance="outline">
             <mat-label>Fecha de registro</mat-label>
-            <input matInput [matDatepicker]="pickerRegistro" formControlName="fechaRegistroForm">
+            <input matInput [matDatepicker]="pickerRegistro" formControlName="fechaRegistroForm" required>
             <mat-datepicker-toggle matSuffix [for]="pickerRegistro"></mat-datepicker-toggle>
             <mat-datepicker #pickerRegistro></mat-datepicker>
           </mat-form-field>
@@ -128,7 +138,7 @@
 
           <mat-form-field appearance="outline">
             <mat-label>Pago por mes</mat-label>
-            <input type="text" matInput formControlName="pagoMensualForm"/>
+            <input type="number" matInput formControlName="pagoMensualForm"/>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
@@ -180,7 +190,14 @@
   </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="saveTreatmentPlan()">Registrar</button>
-    <button mat-raised-button color="primary" (click)="cancelar()">Cancelar</button>
+    <div class="buttons">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="saveTreatmentPlan()">
+      <mat-icon>save</mat-icon>
+      Registrar</button>
+    <button mat-raised-button color="primary" (click)="cancelar()">
+      <mat-icon>cancel</mat-icon>
+      Cancelar</button>
+
+    </div>
   </mat-card-actions>
 </mat-card>

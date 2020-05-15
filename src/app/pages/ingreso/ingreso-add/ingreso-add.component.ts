@@ -21,21 +21,17 @@ ngOnInit() :void {
 }
 
 submit(ingreso: Ingreso) {
-console.log('Going to save', ingreso);
 this.service.registrar(ingreso)
 .pipe(
 catchError(error => {
 this.snackBar.open(error, null, {
   duration: 3000
 });
-// catch & replace
 return EMPTY;
 })
 )
 .subscribe(result => {
-console.log('The ingreso has been added', result);
 this.router.navigate(['/pages/ingresos']);
-// mensaje de confirmacion
 this.snackBar.open('Ingreso fue registrado', 'Close', {
 duration: 3000// milliseconds
 });

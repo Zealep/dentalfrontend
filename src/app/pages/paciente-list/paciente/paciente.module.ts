@@ -21,17 +21,24 @@ import { ControlFormComponent } from './control/control-form/control-form.compon
 import { AlertaComponent } from './alerta/alerta.component';
 import { AlertaFormComponent } from './alerta/alerta-form/alerta-form.component';
 import { CitaEtapaComponent } from './cita/cita-etapa/cita-etapa.component';
+import {NgxPrintModule} from 'ngx-print';
+import { LightboxModule } from 'ngx-lightbox';
+import { IncreaseImageComponent } from './examen/increase-image/increase-image.component';
+import { OdontogramaComponent } from './odontograma/odontograma.component';
+import { AddOdontogramaComponent } from './odontograma/add-odontograma/add-odontograma.component';
 
 
 @NgModule({
-  declarations: [DatosPersonalesComponent, ExamenComponent, PlanTratamientoComponent, ControlComponent, CitaComponent, PagoComponent, TratamientoListComponent, ExamenListComponent, ProcedimientoDialogComponent, PagoComprobanteComponent, AgendarCitaComponent, CitaFormComponent, ControlFormComponent, AlertaComponent, AlertaFormComponent, CitaEtapaComponent],
+  declarations: [DatosPersonalesComponent, ExamenComponent, PlanTratamientoComponent, ControlComponent, CitaComponent, PagoComponent, TratamientoListComponent, ExamenListComponent, ProcedimientoDialogComponent, PagoComprobanteComponent, AgendarCitaComponent, CitaFormComponent, ControlFormComponent, AlertaComponent, AlertaFormComponent, CitaEtapaComponent, IncreaseImageComponent, OdontogramaComponent, AddOdontogramaComponent],
   imports: [
     CommonModule,
     PacienteRoutingModule,
     SharedModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPrintModule,
+    LightboxModule
   ],
   providers:[
     DatePipe

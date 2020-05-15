@@ -2,11 +2,9 @@ mat-card-title{
     margin-bottom: 2rem;
 }
 
-mat-card{
-    margin: 2rem;
+.principal{
+    margin: 1rem;
 }
-
-
 
 .content-tratamiento{
     display: flex;
@@ -18,4 +16,11 @@ mat-card{
 
 .card-tratamiento{
     cursor: pointer;
+    margin-top: 1rem;
+}
+
+h5{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #2196f3;
 }

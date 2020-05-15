@@ -35,17 +35,14 @@ export class IngresoEditComponent implements OnInit {
         })
       )
       .subscribe(ingreso => {
-        console.log('ingreso', ingreso);
         this.ingreso = ingreso;
       });
   }
 
   submit(ingreso : Ingreso) {
     ingreso.idIngreso = this.id;
-    console.log('Going to update', ingreso);
     this.service.modificar(ingreso)
       .subscribe(result => {
-        console.log('Update finished', result);
         this.router.navigate(['/pages/ingresos']);
         this.snackBar.open('El ingreso fue modificado', 'Close', {
           duration: 3000

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Procedimiento } from '../models/procedimiento';
 import { HOST } from '../shared/var.constant';
 import { Respuesta } from '../models/respuesta';
@@ -52,6 +52,33 @@ export class EgresoService {
     .pipe(
       catchError(this.handleError)
     );
+  }
+
+  getEgresosPorDia() {        
+    return this.http.get<number>(`${this.url}/egresosByDia`)
+    .pipe(
+      catchError(this.handleError)
+    );  
+  }
+
+  getEgresosPorMes() {        
+    return this.http.get<number>(`${this.url}/egresosByMes`)
+    .pipe(
+      catchError(this.handleError)
+    );  
+  }
+
+  getMontosPorRangoFechas(inicio:string,fin:string) {      
+    let parms = new HttpParams();
+    parms = parms.append('fechaInicio',inicio);   
+    parms = parms.append('fechaFin',fin);     
+    return this.http.get<Egreso[]>(`${this.url}/rangeDates`,
+    {
+      params:parms
+    })
+    .pipe(
+      catchError(this.handleError)
+    );  
   }
 
    private handleError(error: HttpErrorResponse) {

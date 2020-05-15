@@ -1,29 +1,35 @@
-<mat-toolbar>
-  <button class="btn-principal" mat-raised-button color="primary" [routerLink]="['/pages/paciente/ver/',idPaciente,'examen']">
-    <mat-icon>
-      attach_file
-    </mat-icon>
-    Agregar imagenes</button> Examenes
-</mat-toolbar>
+<mat-card class="content-principal">
+  <mat-card-title>Examenes del paciente</mat-card-title>
+  <mat-card-subtitle>
+    <button mat-raised-button color="primary" [routerLink]="['/pages/paciente/ver/',idPaciente,'examen']">
+      <mat-icon>
+        attach_file
+      </mat-icon>
+      Agregar imagenes</button>
+  </mat-card-subtitle>
+<mat-card-content>
 <div class="card-container">
 
-    <mat-card class="card-content" *ngFor="let i of imagenes">
+    <mat-card class="card-content" *ngFor="let i of imagenes; let idx=index">
       <mat-card-header>
-        <mat-card-title>{{i.titulo}}</mat-card-title>
+        <mat-card-title class="titles">{{i.titulo}}</mat-card-title>
         <mat-card-subtitle>Dr(a). {{i.doctor.apellidos}} {{i.doctor.nombres}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image [src]="i.photoBloUrl">
+      <img mat-card-image [src]="i.photoBloUrl" (click)="open(i.photoBloUrl)">
 
       <mat-card-content>
-          <h3>Fecha de examen: {{i.fechaImagen}}</h3>
+          <h3><span class="titles">Fecha de examen :</span> {{i.fechaImagen | date:'longDate'}}</h3>
         <p>
             {{i.comentarios}}
         </p>
    
       </mat-card-content>
       <mat-card-actions>   
-      
+        <button mat-mini-fab color="warn" (click)="delete(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-card-actions>
     </mat-card>
 </div>
-
+</mat-card-content>
+</mat-card>

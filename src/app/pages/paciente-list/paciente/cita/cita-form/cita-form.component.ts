@@ -105,7 +105,6 @@ export class CitaFormComponent implements OnInit {
   }
 
   initEditForm(data:any){
-    console.log('entro edit cita',data)
     if(data.idCita!=null){
       this.idCita = data.idCita;
       this.citaService.getById(data.idCita).subscribe(c =>{

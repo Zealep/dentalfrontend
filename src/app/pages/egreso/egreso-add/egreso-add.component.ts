@@ -21,7 +21,6 @@ ngOnInit() :void {
 }
 
 submit(egreso: Egreso) {
-console.log('Going to save', egreso);
 this.service.registrar(egreso)
 .pipe(
 catchError(error => {
@@ -33,9 +32,7 @@ return EMPTY;
 })
 )
 .subscribe(result => {
-console.log('The egreso has been added', result);
 this.router.navigate(['/pages/egresos']);
-// mensaje de confirmacion
 this.snackBar.open('Egreso fue registrado', 'Close', {
 duration: 3000// milliseconds
 });

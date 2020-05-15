@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-title>
-        Modificacion de estado de la cita
+        Cambiar estado cita
     </mat-card-title>
     <mat-card-content>
         <mat-form-field>
@@ -15,9 +15,11 @@
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button color="primary" (click)="modificarEtapa()">
-            Cambiar
+            <mat-icon>update</mat-icon>
+            Modificar
         </button>
         <button mat-raised-button color="primary" (click)="cerrar()">
+            <mat-icon>cancel</mat-icon>
             Salir
         </button>
     </mat-card-actions>

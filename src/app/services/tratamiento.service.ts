@@ -1,5 +1,5 @@
+import { Tratamiento } from 'src/app/models/tratamiento';
 import { TratamiengoPagarDTO } from './../models/dto/tratamiento-pagar';
-import { Tratamiento } from './../models/tratamiento';
 import { Injectable } from '@angular/core';
 import { Subject, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
@@ -64,6 +64,7 @@ export class TratamientoService {
     );
   }
 
+
   savePlanTratamiento(planTratamiento: PlanTratamiento) {
     return this.http.post<Respuesta>(`${this.url}/savePlanTratamiento`, planTratamiento)
     .pipe(
@@ -93,6 +94,19 @@ export class TratamientoService {
     return this.http.get<Respuesta>(`${this.url}/changeEtapa`,{params})
     .pipe(catchError(this.handleError)
     );
+  }
+
+  generarContrato(t: Tratamiento){
+    return this.http.post(`${this.url}/generarContrato`, t,{
+      responseType: 'blob'
+    });
+  }
+
+  getNews() {        
+    return this.http.get<Tratamiento[]>(`${this.url}/news`)
+    .pipe(
+      catchError(this.handleError)
+    );  
   }
 
    private handleError(error: HttpErrorResponse) {

@@ -3,6 +3,15 @@
     margin:50px;
 }
 
+mat-card {
+    margin: 1rem;
+}
+
+mat-card-subtitle{
+    text-transform: uppercase;
+    color: #2196f3;
+}
+
 mat-form-field{
     width: 500px;
 }

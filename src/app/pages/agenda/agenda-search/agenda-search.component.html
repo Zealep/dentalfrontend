@@ -1,0 +1,44 @@
+
+<mat-card>
+    <mat-card-title>
+        {{cita.asunto}}
+    </mat-card-title>
+    <mat-card-content>
+
+        <table cellpadding="10">
+            <tr>
+                <td class="title">FECHA</td>
+                <td>{{cita.fechaHora | date:'EEEE, MMMM d, y , h:mm a' }}</td>
+            </tr>
+            <tr>
+                <td class="title">DR(a)</td>
+                <td>{{cita.apellidosDoctor}} {{cita.nombresDoctor}}</td>
+            </tr>
+            <tr>
+                <td class="title">PACIENTE</td>
+                <td>{{cita.apellidosPaciente}} {{cita.nombresPaciente}}</td>
+            </tr>
+        </table>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="buttons">
+            <button mat-icon-button (click)="edit()">
+                <mat-icon>edit</mat-icon>
+            </button>
+            
+            <button mat-icon-button (click)="delete()">
+                <mat-icon>delete</mat-icon>
+            </button>
+            
+            <button mat-icon-button (click)="close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </mat-card-actions>
+</mat-card>
+   
+    
+  
+ 
+        
+

@@ -34,17 +34,14 @@ export class ProcedimientoEditComponent implements OnInit {
         })
       )
       .subscribe(procedimiento => {
-        console.log('procedimiento', procedimiento);
         this.procedimiento = procedimiento;
       });
   }
 
   submit(procedimiento : Procedimiento) {
     procedimiento.idProcedimiento = this.id;
-    console.log('Going to update', procedimiento);
     this.service.modificar(procedimiento)
       .subscribe(result => {
-        console.log('Update finished', result);
         this.router.navigate(['/pages/procedimientos']);
         this.snackBar.open('El procedimiento fue modificado', 'Close', {
           duration: 3000

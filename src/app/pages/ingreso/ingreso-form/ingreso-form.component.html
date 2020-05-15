@@ -4,21 +4,21 @@
         <form [formGroup]="form">
 
             <mat-form-field appearance="outline">
-                <mat-label>Fecha de Ingreso</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="fechaIngreso">
+                <mat-label>Fecha del Ingreso</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fechaIngreso" required>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>Monto</mat-label>
-                <input type="text" matInput formControlName="monto">
+                <mat-label>Monto del ingreso</mat-label>
+                <input type="number" matInput formControlName="monto" required>
                 <span matPrefix>S/. &nbsp;</span>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>Descripcion</mat-label>
-                <textarea type="text" matInput formControlName="descripcion"></textarea>
+                <mat-label>Descripcion y/o informacion</mat-label>
+                <textarea type="text" matInput formControlName="descripcion" required></textarea>
             </mat-form-field>
             <br>
             <button class="btn-form" [disabled]="form.invalid" (click)="onSubmit()" mat-raised-button

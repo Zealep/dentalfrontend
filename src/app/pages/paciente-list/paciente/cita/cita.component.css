@@ -7,8 +7,10 @@ table {
 }
 
 .contenedor{
-    margin-left: 100px;
-    margin-right: 100px;
     display: flex;
    
+}
+
+mat-card{
+    margin: 1rem;
 }

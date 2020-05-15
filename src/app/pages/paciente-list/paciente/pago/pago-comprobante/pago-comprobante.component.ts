@@ -3,7 +3,7 @@ import { RESPONSE_OK_API } from './../../../../../shared/var.constant';
 import { PagoService } from './../../../../../services/pago.service';
 import { Tratamiento } from 'src/app/models/tratamiento';
 import { Pago } from './../../../../../models/pago';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
@@ -33,7 +33,8 @@ export class PagoComprobanteComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private _formBuilder: FormBuilder,
     private pagoService: PagoService,
-    private tratamientoService: TratamientoService) { }
+    private tratamientoService: TratamientoService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.idTratamiento = +this.route.snapshot.paramMap.get('idTratamiento');
@@ -87,6 +88,10 @@ export class PagoComprobanteComponent implements OnInit {
      
     });
  
+  }
+
+  clear(){
+    this.firstFormGroup.reset();
   }
 
 }

@@ -1,0 +1,19 @@
+mat-form-field,.container-cards{
+    margin: 1rem
+}
+
+.container-cards{
+    display: flex;
+}
+
+.container-cards mat-card{
+    margin: 2rem;
+    flex: 1 1 0px;
+    color: white;
+}
+
+mat-card-title, mat-card-subtitle{
+    color: white;
+    text-align: center;
+}
+

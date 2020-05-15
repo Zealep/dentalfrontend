@@ -7,7 +7,7 @@
     
             <mat-form-field appearance="outline">
                 <mat-label>Asignar Tratamiento</mat-label>
-                <mat-select formControlName="tratamientoFrm">
+                <mat-select formControlName="tratamientoFrm" required>
                     <mat-option *ngFor="let tratamiento of tratamientos" [value]="tratamiento.idTratamiento">
                         {{tratamiento.nombre}}
                     </mat-option>
@@ -16,7 +16,7 @@
         
             <mat-form-field appearance="outline">
                 <mat-label>Fecha de control</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="fechaFrm">
+                <input matInput [matDatepicker]="picker" formControlName="fechaFrm" required>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
@@ -24,7 +24,7 @@
         
             <mat-form-field appearance="outline">
                 <mat-label>Comentarios y/o observaciones</mat-label>
-                <textarea matInput formControlName="comentariosFrm">
+                <textarea matInput formControlName="comentariosFrm" required>
         
                 </textarea>
             </mat-form-field>
@@ -33,8 +33,12 @@
     </mat-card-content>
 </form>
     <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="saveForm()">Registrar</button>
-        <button mat-raised-button color="primary" (click)="close()">Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="formGroup.invalid" (click)="saveForm()">
+            <mat-icon>save</mat-icon>
+            Registrar</button>
+        <button mat-raised-button color="primary" (click)="close()">
+            <mat-icon>cancel</mat-icon>
+            Cancelar</button>
 
     </mat-card-actions>
 </mat-card>

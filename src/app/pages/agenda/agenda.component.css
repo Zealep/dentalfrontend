@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+}
+
+.item-1{
+        display: flex;
+        flex-direction: column;
+        flex: 0 1 30%;
+    }
+.item-2{
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+}
+
+
+mat-icon{
+    display: inline-flex;
+    vertical-align: top;
+    margin-right: 10px;
+}
+
+h2{
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #2196f3;
+}
+span mat-icon{
+    color: #2196f3;
+}

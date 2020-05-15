@@ -18,6 +18,7 @@ export class CitaEtapaComponent implements OnInit {
 
   ngOnInit(): void {
     this.idCita = this.data.idCita;
+    this.estadoCita = 'PENDIENTE';
   }
 
   modificarEtapa(){

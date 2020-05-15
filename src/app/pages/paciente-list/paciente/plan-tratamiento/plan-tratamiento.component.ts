@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Doctor } from './../../../../models/doctor';
 import { DoctorService } from './../../../../services/doctor.service';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { catchError, startWith, map } from 'rxjs/operators';
+import { catchError, startWith, map, mergeMap } from 'rxjs/operators';
 import { EMPTY, Observable } from 'rxjs';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Procedimiento } from 'src/app/models/procedimiento';
@@ -219,7 +219,6 @@ export class PlanTratamientoComponent implements OnInit {
   private cargarTratamiento(idTratamiento:number){
       if(idTratamiento!=0){
         this.tratamientoService.getById(idTratamiento).subscribe(t =>{
-          console.log('tratamiento find',t);
           this.tratamientoDetalles = t.tratamientoDetalles;
           this.refreshDataSource();
           this.form.controls['nombreForm'].setValue(t.nombre);
@@ -233,7 +232,6 @@ export class PlanTratamientoComponent implements OnInit {
   private cargarOrtodoncia(idTratamiento: number){
     if(idTratamiento!=0){
       this.ortodonciaService.getByTratamiento(idTratamiento).subscribe(t =>{
-        console.log('ortodoncia',t);
           if(t!=null){
             this.planOrtodoncia = true;
             this.idOrtodoncia = t.idOrtodoncia;
@@ -249,6 +247,26 @@ export class PlanTratamientoComponent implements OnInit {
                    
         
         });
+    }
+  }
+
+  generarContrato(){
+    if(this.idTratamiento!=0){
+      this.tratamientoService.getById(this.idTratamiento)
+      .pipe(
+        mergeMap((result=> this.tratamientoService.generarContrato(result)))
+      )
+      .subscribe(contrato=>{
+        const url = window.URL.createObjectURL(contrato);
+        const a = document.createElement('a');
+        a.setAttribute('style', 'display:none;');
+        document.body.appendChild(a);
+        a.href = url;
+        a.download = 'contrato.pdf';
+        a.click();
+        return url;
+      });
+    
     }
   }
 

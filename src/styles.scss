@@ -4,39 +4,28 @@ html, body {
     height: 100%; 
 }
 body { 
-    margin: 0; 
+    margin: 0;
+    background-color: #EBF3F5; 
  }
 
  th.mat-header-cell {
   font-weight: bold;
-  color: black;
+  text-transform: uppercase;
+  color: #2196f3;
+}
+
+.mat-form-field-outline-thick { 
+  color: #2196f3;
 }
 
 .mat-card-title{
+  font-weight: bold;
+  text-transform: uppercase;
   margin-bottom: 25px !important;
 }
 
  tr.example-element-row:not(.example-expanded-row):hover {
     background: whitesmoke;
   }
-  /* typografia */
-  @import '~@angular/material/theming';
-
-// Define a custom typography config that overrides the font-family as well as the
-// `headlines` and `body-1` levels.
-$custom-typography: mat-typography-config(
-  $font-family: 'Titillium Web, sans-serif' 
-);
 
 
-// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
-@include mat-base-typography($custom-typography);
-
-// Override typography for a specific Angular Material components.
-@include mat-checkbox-typography($custom-typography);
-
-// Override typography for all Angular Material, including mat-base-typography and all components.
-@include angular-material-typography($custom-typography);
-
-// Override the typography in the core CSS.
-@include mat-core($custom-typography);

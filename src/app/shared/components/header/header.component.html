@@ -1,6 +1,9 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <h1>SYSCLIDENT</h1>
+      <a [routerLink]="'/pages/dashboard'" >
+        <!--<img src="/assets/images/logo-jossdent.png" height="80px"> -->
+        {{empresa}}
+      </a>
       <span class="menu-spacer"></span>
       
         <button mat-button [routerLink]="'/pages/agenda'">
@@ -16,16 +19,31 @@
             <button mat-menu-item [routerLink]="'/pages/doctores'" >Doctores</button>
             <button mat-menu-item [routerLink]="'/pages/egresos'" >Egresos</button>
             <button mat-menu-item [routerLink]="'/pages/ingresos'" >Ingresos</button>
-
+            <button mat-menu-item [routerLink]="'/pages/empresa'" >Empresa</button>
+            <button mat-menu-item [routerLink]="'/pages/usuario'" >Usuarios</button>
+  
             </mat-menu>
 
            <button mat-button [matMenuTriggerFor]="menuReportes" > 
             Reportes 
             <mat-icon>arrow_drop_down</mat-icon> </button>
             <mat-menu #menuReportes="matMenu">
+              <button [routerLink]="'/pages/reporte-finanzas'" mat-menu-item >Reporte de finanzas</button>
             <button [routerLink]="'/pages/reporte-pagos'" mat-menu-item >Reporte de pagos</button>
             <button [routerLink]="'/pages/reporte-controles'" mat-menu-item >Reporte de controles</button>
             </mat-menu>
+
+            <span class="example-spacer"></span>
+            
+            <button class="salir" mat-icon-button [matMenuTriggerFor]="menuPerfil">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menuPerfil="matMenu">
+              <button mat-menu-item routerLink="/login" (click)="cerrarSesion()">
+                  <mat-icon>exit_to_app</mat-icon>
+                  <span>Cerrar Sesión</span>
+              </button>
+          </mat-menu>
   
     </mat-toolbar-row>
   

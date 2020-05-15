@@ -1,0 +1,46 @@
+
+    <div class="container">
+        <mat-card class="item-1">
+            
+            <button mat-raised-button color="primary" (click)="openDialog()">
+                <mat-icon>
+                    alarm_add
+                </mat-icon>
+                AGENDAR CITA
+            </button>
+            <mat-calendar class="flex-container" [selected]="selectedDate" (selectedChange)="onSelect($event)">
+
+            </mat-calendar>
+        </mat-card>
+
+        <mat-card class="item-2">
+            <h2> Citas del dia <span>{{selectedDate | date:'fullDate'}}</span></h2>
+            <mat-nav-list>
+                <a  mat-list-item *ngFor="let c of this.citas" (click)="showAgenda(c)">
+                  <span mat-line>
+                      <mat-icon>
+                        access_time
+                      </mat-icon>{{c.fechaHora | date:'h:mm a'}}
+                    </span>
+                  <span mat-line>
+                      <mat-icon>
+                        local_hospital
+                      </mat-icon>
+                    Dr(a). {{c.apellidosDoctor}} {{c.nombresDoctor}}
+                </span>
+
+                <span mat-line>
+                    <mat-icon>
+                        person
+                    </mat-icon>
+                  {{c.apellidosPaciente}} {{c.nombresPaciente}}
+              </span>
+                </a>
+              
+              </mat-nav-list>
+        </mat-card>
+    </div>
+
+
+
+

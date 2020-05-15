@@ -15,7 +15,7 @@
 
           <mat-form-field appearance="outline">
             <mat-label>Monto a pagar </mat-label>
-            <input matInput formControlName="montoPagar" required>
+            <input type="number" matInput formControlName="montoPagar" required>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
@@ -28,7 +28,6 @@
             </mat-select>
           </mat-form-field>
 
-         
 
           <mat-form-field appearance="outline">
             <mat-label>Numero de comprobante</mat-label>
@@ -41,8 +40,17 @@
           </mat-form-field>
 
           <div>
-            <button mat-raised-button color="primary" (click)="grabarPago(stepper)">Registrar</button>
+            <button mat-raised-button color="primary" [disabled]="firstFormGroup.invalid" (click)="grabarPago(stepper)">
+              <mat-icon>attach_money</mat-icon>
+              Pagar
+            </button>
+            <button mat-raised-button color="primary" (click)="clear()">
+              <mat-icon>clear</mat-icon>
+              Limpiar
+            </button>
           </div>
+
+
 
         </mat-card-content>
       </mat-card>
@@ -53,55 +61,50 @@
   <mat-step>
     <ng-template matStepLabel>Comprobante de pago</ng-template>
 
-    <div class="container-comprobante">
-      <div class="header-comprobante">
-        <div class="item-comprobante">
-          <h3>CLIENTE</h3>
-          <p> {{clienteComprobante}} </p>
+    <div id="comprobante-pago" class="container-comprobante">
+      <table cellpadding="20">
 
-        </div>
+        <tr class="cabeceras">
+          <td colspan="3">CLIENTE</td>
+          <td>DOCUMENTO IDENTIDAD</td>
+          <td>FECHA COMPROBANTE</td>
+        </tr>
 
-        <div class="item-comprobante">
-          <h3>DOCUMENTO IDENTIDAD</h3>
-          <p> {{nroDocumentoComprobante}} </p>
-        </div>
+        <tr class="body">
+          <td colspan="3">{{clienteComprobante}}</td>
+          <td>{{nroDocumentoComprobante}}</td>
+          <td>{{fechaComprobante | date:'dd-MM-yyy'}}</td>
+        </tr>
+        <br>
+        <br>
+        <tr class="cabeceras">
+          <td>DESCRIPCION</td>
+          <td>TIPO DE PAGO</td>
+          <td>FECHA DE PAGO</td>
+          <td>N° COMPROBANTE</td>
+          <td>MONTO PAGADO</td>
+        </tr>
+        <tr class="body">
+          <td>{{descripcionComprobante}} <br> {{doctorComprobante}} </td>
+          <td>{{tipoPagoComprobante}}</td>
+          <td>{{fechaPagoComprobante | date:'dd-MM-yyy' }}</td>
+          <td>{{numeroComprobante}}</td>
+          <td>S/. {{montoPagadoComprobante}}</td>
+        </tr>
 
-        <div class="item-comprobante">
-          <h3> FECHA COMPROBANTE</h3>
-          <p> {{fechaComprobante | date:'dd-MM-yyyy'}} </p>
-        </div>
-      </div>
-      <div class="body-comprobante">
-        
-          <div class="item-comprobante">
-            <h3> DESCRIPCION</h3>
-            <p> {{descripcionComprobante}} </p>
-            <p> {{doctorComprobante}} </p>
-          </div>
-          <div class="item-comprobante">
-            <h3> TIPO PAGO</h3>
-            <p> {{tipoPagoComprobante}} </p>
-          </div>
-          <div class="item-comprobante">
-            <h3> FECHA PAGO</h3>
-            <p> {{fechaPagoComprobante | date:'dd-MM-yyyy' }} </p>
-          </div>
+      </table>
 
-          <div class="item-comprobante">
-            <h3> N° COMPROBANTE</h3>
-            <p> {{numeroComprobante}} </p>
-          </div>
-
-          <div class="item-comprobante">
-            <h3> MONTO PAGADO</h3>
-            <p> S/. {{montoPagadoComprobante}} </p>
-          </div>
-
-      </div>
     </div>
 
     <div>
-      <button mat-raised-button color="primary" (click)="stepper.reset()">Reiniciar</button>
+      <button mat-raised-button color="primary" [useExistingCss]="true" printSectionId="comprobante-pago" ngxPrint>
+        <mat-icon>print</mat-icon>
+        Imprimir
+      </button>
+      <button mat-raised-button color="primary" (click)="stepper.reset()">
+        <mat-icon>loop</mat-icon>
+        Reiniciar
+      </button>
     </div>
   </mat-step>
 </mat-vertical-stepper>

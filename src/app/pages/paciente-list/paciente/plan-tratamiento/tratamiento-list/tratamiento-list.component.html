@@ -1,13 +1,13 @@
-<mat-card>
+<mat-card class="principal">
     <mat-card-title>
         Planes de tratamientos
     </mat-card-title>
     <mat-card-subtitle>
         <button mat-raised-button color="primary" [routerLink]="['/pages/paciente/ver/',idPaciente,'tratamiento']">
             <span class="material-icons">
-                add
+                note_add
             </span>
-            Agregar plan de tratamiento
+            Nuevo plan de tratamiento
         </button>
     </mat-card-subtitle>
     <mat-card-content>
@@ -20,22 +20,22 @@
             
             <div class="item-tratamiento">
                 <h5>PROFESIONAL</h5>
-                <p>{{t.doctor.apellidos}} {{t.doctor.nombres}}</p>
+                <p>Dr(a). {{t.doctor.apellidos}} {{t.doctor.nombres}}</p>
             </div>
 
             <div class="item-tratamiento">
-                <h5>ULTIMA CITA</h5>
-                <p>{{t.doctor.apellidos}}</p>
+                <h5>FECHA REGISTRO</h5>
+                <p>{{t.fechaRegistro | date:'longDate'}}</p>
             </div>
 
             <div class="item-tratamiento">
-                <h5>PROGRESO</h5>
-                <p>{{t.doctor.apellidos}}</p>
+                <h5>TOTAL MONTO</h5>
+                <p >S/. {{t.montoTotal}} </p>
             </div>
 
             <div class="item-tratamiento">
-                <h5>ESTADO FINANCIERO</h5>
-                <p>{{t.doctor.apellidos}}</p>
+                <h5>ETAPA</h5>
+                <p>{{t.etapa =='A' ? 'VIGENTE' : 'FINALIZADO'}}</p>
             </div>
     
         </mat-card-content>

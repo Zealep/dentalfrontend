@@ -36,7 +36,6 @@ export class ControlComponent implements OnInit {
   getControlsByPaciente(id:number){
     this.controlService.getListByPaciente(this.idPaciente)
     .subscribe(results =>{
-      console.log('result',results)
       this.controles = results;
       this.dsControles = new MatTableDataSource(this.controles);
     });

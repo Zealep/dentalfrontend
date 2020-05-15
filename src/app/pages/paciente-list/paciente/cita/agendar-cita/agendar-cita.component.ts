@@ -44,6 +44,7 @@ export class AgendarCitaComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.onSelect(new Date());
     this.idPaciente = +this.route.parent.snapshot.paramMap.get('id');
   }
 
@@ -62,7 +63,6 @@ export class AgendarCitaComponent implements OnInit {
   }
 
   onSelect(event:any){
-    console.log(event);
     this.selectedDate = event;
     this.fecha = this.datePipe.transform(this.selectedDate, 'dd-MM-yyyy');
     this.getCitasByDate(this.fecha);
@@ -74,6 +74,16 @@ export class AgendarCitaComponent implements OnInit {
       this.citas = citas;
       this.dsCitas = new MatTableDataSource(this.citas);
     });
+  }
+
+  getColorEtapa(etapa:string){
+    switch(etapa){
+      case 'PENDIENTE': return '#00c853';
+      case 'ATENDIDA': return '#0d47a1';
+      case 'CANCELADA': return '#c62828';
+      default: return 'black';
+
+    }
   }
   
 

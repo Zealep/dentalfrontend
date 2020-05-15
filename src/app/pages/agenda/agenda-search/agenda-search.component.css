@@ -1,0 +1,12 @@
+.buttons{
+    align-content: flex-end;
+}
+
+mat-icon{
+    color: #2196f3;;
+}
+
+.title{
+    color: #2196f3;
+    text-align: end;
+}

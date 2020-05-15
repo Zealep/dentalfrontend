@@ -87,7 +87,7 @@ export class CitaComponent implements OnInit {
   changeEtapa(cita: Cita){
     const dialogRef = this.dialog.open(CitaEtapaComponent, {
       data: { idCita:cita.idCita},
-      width: '300px',
+      width: '400px',
       disableClose: true 
     
     });
@@ -97,4 +97,13 @@ export class CitaComponent implements OnInit {
     });
   }
 
+  getColorEtapa(etapa:string){
+    switch(etapa){
+      case 'PENDIENTE': return '#00c853';
+      case 'ATENDIDA': return '#0d47a1';
+      case 'CANCELADA': return '#c62828';
+      default: return 'black';
+
+    }
+  }
 }

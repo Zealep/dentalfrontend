@@ -3,7 +3,10 @@
         Alertas del paciente
     </mat-card-title>
     <mat-card-subtitle>
-        <button mat-raised-button (click)="openDialog()">
+        <button color="primary" mat-raised-button (click)="openDialog()">
+            <mat-icon>
+                add_alert
+            </mat-icon>
             Alertas predeterminadas
         </button>
     </mat-card-subtitle>
@@ -14,10 +17,15 @@
             <mat-checkbox [value]="item.idAlerta" (change)="toggle($event)">{{item.nombre}}</mat-checkbox> 
         </section>
         </ng-container> 
+    </mat-card-content>
+    <mat-card-actions>
 
         <button mat-raised-button color="primary" (click)="saveAlertas()">
+            <mat-icon>
+                save
+            </mat-icon>
             Grabar
         </button>
-    </mat-card-content>
+    </mat-card-actions>
     </form>
 </mat-card>

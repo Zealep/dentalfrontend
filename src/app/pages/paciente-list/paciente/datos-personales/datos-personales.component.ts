@@ -1,6 +1,6 @@
 import { DEFAULT_FOTO } from './../../../../shared/var.constant';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { catchError } from 'rxjs/operators';
+import { catchError, mergeMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { PacienteService } from 'src/app/services/paciente.service';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -33,7 +33,10 @@ export class DatosPersonalesComponent implements OnInit {
 
   })
 
-  constructor(private pacienteService: PacienteService, private route:ActivatedRoute, private snackBar: MatSnackBar, private sanitizer: DomSanitizer) { }
+  constructor(private pacienteService: PacienteService,
+     private route:ActivatedRoute, 
+     private snackBar: MatSnackBar,
+      private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.idPaciente = +this.route.parent.snapshot.paramMap.get('id');
@@ -85,6 +88,21 @@ export class DatosPersonalesComponent implements OnInit {
     paciente.lugarProcedencia = this.form.value['lugarProcedencia'];
     paciente.email = this.form.value['email'];
 
+    this.pacienteService.getById(this.idPaciente)
+    .pipe(
+      mergeMap((p)=>{
+        paciente.foto = p.foto
+        return this.pacienteService.registrar(paciente)
+      })  
+    )
+    .subscribe(result => {
+      this.initForm();
+      this.snackBar.open('El paciente fue actualizado', 'Close', {
+        duration: 5000
+      });
+    });
+
+    /*
     this.pacienteService.registrar(paciente)
       .pipe(
         catchError(error => {
@@ -100,7 +118,24 @@ export class DatosPersonalesComponent implements OnInit {
           duration: 5000
         });
       });
+  */
+  }
 
+
+
+  getUrlPhoto(){
+    this.pacienteService.getById(this.idPaciente)
+    .pipe(
+      catchError(error=>{
+        this.snackBar.open(error,null,{
+          duration:3000
+        });
+        return EMPTY
+      })
+    )
+    .subscribe(result => {
+
+    })
   }
 
 

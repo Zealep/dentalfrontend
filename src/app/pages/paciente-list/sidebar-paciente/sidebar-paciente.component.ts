@@ -17,6 +17,7 @@ const MENUITEMS = [
   { state: 'datos', type: 'link', name: 'Datos personales', icon: 'person' },
   { state: 'examenes', type: 'link', name: 'Imagenes y archivos', icon: 'collections' },
   { state: 'control', type: 'link', name: 'Controles', icon: 'class' },
+  { state: 'odontograma', type: 'link', name: 'Odontograma', icon: 'ballot' },
   { state: 'cita', type: 'link', name: 'Citas', icon: 'date_range' },
   { state: 'tratamiento-list', type: 'link', name: 'Planes de tratamiento', icon: 'assignment' },
   { state: 'pago', type: 'link', name: 'Pagos', icon: 'payment' },
@@ -39,7 +40,6 @@ export class SidebarPacienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
-    console.log('id find',this.id);
     this.service.getById(this.id)
       .pipe(
         catchError(error => {
@@ -50,7 +50,6 @@ export class SidebarPacienteComponent implements OnInit {
         })
       )
       .subscribe(paciente => {
-        console.log('paciente getById', paciente);
         this.paciente = paciente;
         this.getAlertas(this.paciente);
       });
@@ -61,7 +60,7 @@ export class SidebarPacienteComponent implements OnInit {
     for( let p of paciente.alertas){
       alertas.push(p.nombre)
     }
-    console.log(alertas);
+  
     this.alertas = alertas.toString();
   }
 

@@ -1,34 +1,35 @@
 <div *ngIf="paciente">
+
 <mat-card>
     <mat-card-header>    
         <mat-card-title > {{paciente.apellidos}} {{paciente.nombres}} </mat-card-title>
-        <mat-card-subtitle><span>
+        <mat-card-subtitle><span class="aligned-with-icon2">
             <mat-icon>
-                account_box
+                perm_contact_calendar
             </mat-icon>
             N° Historia: {{paciente.nroHistoria}}
         </span>
         <br>
-        <span [style.color]="'red'">
+        <span class="aligned-with-icon">
             <mat-icon>
                 notification_important
             </mat-icon>
-             {{alertas}}
+             {{alertas!='' ? alertas : 'No tiene alertas'}}
             </span>
             </mat-card-subtitle>
     </mat-card-header>
   
 </mat-card>
 
-<mat-nav-list appAccordion>
-    <mat-list-item appAccordionLink *ngFor="let menuitem of getMenuitem()" routerLinkActive="selected">
-        <a appAccordionToggle [routerLink]="['/pages/paciente/ver',paciente.idPaciente, menuitem.state]">
+
+
+<mat-list appAccordion>
+    <mat-list-item *ngFor="let menuitem of getMenuitem()" routerLinkActive="selected" [routerLink]="['/pages/paciente/ver',paciente.idPaciente, menuitem.state]">
             <mat-icon>{{ menuitem.icon }}</mat-icon> 
             <span class="span-item">{{ menuitem.name }}</span> 
-        </a>
         <mat-divider></mat-divider>
     </mat-list-item>
   
 
-</mat-nav-list>
+</mat-list>
 </div>

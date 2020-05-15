@@ -19,6 +19,7 @@ export class PacienteFormComponent implements OnInit {
     celular: new FormControl(''),
     direccion: new FormControl(''),
     lugarProcedencia: new FormControl(''),
+    fechaInicio: new FormControl(new Date()),
     email: new FormControl(''),
     foto: new FormControl('')
 
@@ -31,7 +32,6 @@ export class PacienteFormComponent implements OnInit {
     if(!m) {
       return;
     }
-    console.log('set model', m);
     this.form.patchValue(m);
   }
 
@@ -47,10 +47,8 @@ export class PacienteFormComponent implements OnInit {
 
   onSubmit() {
     if(this.form.valid) {
-      console.log('model',this.form.value);
       this.enviar.emit(this.form.value); // Enviamos el modelo de datos: Doctor
     } else {
-      console.error('Form is invalid');
     }
   }
 

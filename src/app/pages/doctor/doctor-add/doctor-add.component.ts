@@ -21,7 +21,6 @@ ngOnInit() {
 }
 
 submit(doctor: Doctor) {
-console.log('Going to save', doctor);
 this.service.registrar(doctor)
 .pipe(
 catchError(error => {
@@ -33,11 +32,9 @@ return EMPTY;
 })
 )
 .subscribe(result => {
-console.log('The doctor has been added', result);
 this.router.navigate(['/pages/doctores']);
-// mensaje de confirmacion
 this.snackBar.open('Doctor fue registrado', 'Close', {
-duration: 3000// milliseconds
+duration: 3000
 });
 });
 }

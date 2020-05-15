@@ -27,7 +27,6 @@ export class DoctorFormComponent implements OnInit {
     if(!m) {
       return;
     }
-    console.log('set model', m);
     this.form.patchValue(m);
   }
 
@@ -42,7 +41,6 @@ export class DoctorFormComponent implements OnInit {
 
   onSubmit() {
     if(this.form.valid) {
-      console.log('model',this.form.value);
       this.enviar.emit(this.form.value); // Enviamos el modelo de datos: Doctor
     } else {
       console.error('Form is invalid');

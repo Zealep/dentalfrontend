@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-header>
+    <mat-card-title>
+        REGISTRO DE ODONTOGRAMAS
+    </mat-card-title>
+    <mat-card-subtitle>
+        <button class="seleccion-images" mat-raised-button color="primary" (click)="fileInput.click()">
+            <input #fileInput type="file" (change)="detectFiles($event)" style="display:none;">
+            <mat-icon>file_upload</mat-icon>
+            Cargar odontograma
+        </button>
+    </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="imgSelected" [src]="imgSelected">
+
+    <mat-card-content>
+     
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Fecha del registro</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="fechaRegistro">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+     
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="save()">
+            <mat-icon>save</mat-icon>
+            Guardar
+        </button>
+        <button mat-raised-button color="primary" (click)="cancelar()">
+            <mat-icon>cancel</mat-icon>
+            Cancelar
+        </button>
+    </mat-card-actions>
+</mat-card>

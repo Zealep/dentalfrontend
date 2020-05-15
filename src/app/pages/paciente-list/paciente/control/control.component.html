@@ -15,7 +15,7 @@
         <table mat-table [dataSource]="dsControles">
        
             <ng-container matColumnDef="tratamiento">
-              <th mat-header-cell *matHeaderCellDef> TRATAMIENTO </th>
+              <th mat-header-cell *matHeaderCellDef> PLAN DE TRATAMIENTO </th>
               <td mat-cell *matCellDef="let element"> {{element.tratamiento.nombre}}
                                                     
               </td>
@@ -24,7 +24,7 @@
           
             <ng-container matColumnDef="fecha">
               <th mat-header-cell *matHeaderCellDef> FECHA DEL CONTROL </th>
-              <td mat-cell *matCellDef="let element"> {{element.fechaControl}}</td>
+              <td mat-cell *matCellDef="let element"> {{element.fechaControl | date:'longDate'}}</td>
             </ng-container>
           
           

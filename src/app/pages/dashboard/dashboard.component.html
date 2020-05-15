@@ -1,1 +1,78 @@
-<p>dashboard works!</p>
+<div class="container-cards-1">
+
+    <mat-card class="cards-item" (click)="openDialogBirthday()">
+        <mat-card-header>
+            <img mat-card-sm-image src="/assets/images/cumpleaños.svg">
+            <mat-card-title><span class="span-number">{{cumpleanherosSize}}</span><br><br><span>Cumpleaños del dia</span></mat-card-title>
+          </mat-card-header>
+    </mat-card>
+
+    <mat-card class="cards-item" (click)="openDialogPaciente()">
+        <mat-card-header>
+            <img mat-card-sm-image src="/assets/images/paciente-new.svg">
+            <mat-card-title><span class="span-number">{{nuevosSize}}</span><br><br><span>Pacientes nuevos en la semana</span></mat-card-title>
+          </mat-card-header>
+    </mat-card>
+
+
+    <mat-card class="cards-item" (click)="openDialogOrtodoncia()">
+        <mat-card-header>
+            <img mat-card-sm-image src="/assets/images/ortodoncia.svg">
+            <mat-card-title><span class="span-number">{{newsOrtodonciasSize}}</span><br><br><span>Nuevas Ortodoncias en el mes</span></mat-card-title>
+          </mat-card-header>
+    </mat-card>
+
+
+    <mat-card class="cards-item" (click)="openDialogTratamiento()">
+        <mat-card-header>
+            <img mat-card-sm-image src="/assets/images/tratamientos.svg">
+            <mat-card-title><span class="span-number">{{newsTratamientosSize}}</span><br><br><span>Tratamientos nuevos en el mes</span></mat-card-title>
+          </mat-card-header>
+    </mat-card>
+ 
+
+</div>
+
+
+<div class="container-graficos" *ngIf="viewBarra | async as results">
+<ngx-charts-bar-vertical class="grafico-item" 
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="results"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  (select)="onSelect($event)">
+</ngx-charts-bar-vertical>
+
+<ngx-charts-pie-grid *ngIf="viewPie | async as results" class="grafico-item" 
+[view]="view"
+[scheme]="colorScheme"
+[results]="results">
+</ngx-charts-pie-grid>
+
+</div>
+
+<div class="container-info">
+    <mat-card [style.background]="'#0069c0'" [style.color]="'white'">
+      <mat-card-title>S/. {{pagosDia}} soles</mat-card-title>
+      <mat-card-subtitle>PAGOS DEL DIA</mat-card-subtitle>
+    </mat-card>
+
+    
+    <mat-card [style.background]="'#e57373'" [style.color]="'white'">
+      <mat-card-title>S/. {{egresosDia}} soles</mat-card-title>
+      <mat-card-subtitle>EGRESOS DEL DIA</mat-card-subtitle>
+    </mat-card>
+
+
+    <mat-card [style.background]="'#26a69a'" [style.color]="'white'">
+      <mat-card-title>S/. {{ingresosDia}} soles</mat-card-title>
+      <mat-card-subtitle>INGRESOS DEL DIA</mat-card-subtitle>
+    </mat-card>
+</div>

@@ -44,7 +44,6 @@ export class TratamientoListComponent implements OnInit {
         })
       )
       .subscribe(tratamientos => {
-        console.log('tratamientos',tratamientos)
       });
   }
 
@@ -122,7 +121,6 @@ export class TratamientoListComponent implements OnInit {
   }
 
   callEditTratamiento(idTratamiento: number){
-    console.log('se llamo a editar tratamiento', idTratamiento);
     this.router.navigate(['/pages/paciente/ver/',this.idPaciente,'tratamiento',{plan:idTratamiento}]);
   }
 

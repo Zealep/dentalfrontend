@@ -1,7 +1,8 @@
+import { PagoTotalMesesDTO } from './../models/dto/pago-meses';
 import { Pago } from './../models/pago';
 import { Injectable } from '@angular/core';
 import { Subject, throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Procedimiento } from '../models/procedimiento';
 import { HOST } from '../shared/var.constant';
 import { Respuesta } from '../models/respuesta';
@@ -53,6 +54,38 @@ export class PagoService {
     .pipe(
       catchError(this.handleError)
     );
+  }
+
+  getPagosTotalMeses() {        
+    return this.http.get<PagoTotalMesesDTO[]>(`${this.url}/meses`)
+    .pipe(
+      catchError(this.handleError)
+    );  
+  }
+
+  getPagosPorDia() {        
+    return this.http.get<number>(`${this.url}/pagosByDia`)
+    .pipe(
+      catchError(this.handleError)
+    );  
+  }
+
+  getPagosPorMes() {        
+    return this.http.get<number>(`${this.url}/pagosByMes`)
+    .pipe(
+      catchError(this.handleError)
+    );  
+  }
+
+  getMontosPorRangoFechas(inicio:string,fin:string) {
+    let parms = new HttpParams();
+    parms = parms.append('fechaInicio',inicio);   
+    parms = parms.append('fechaFin',fin);   
+
+    return this.http.get<Pago[]>(`${this.url}/rangeDates`,{params:parms})
+    .pipe(
+      catchError(this.handleError)
+    );  
   }
 
    private handleError(error: HttpErrorResponse) {

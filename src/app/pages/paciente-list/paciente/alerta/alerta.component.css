@@ -1,0 +1,15 @@
+mat-card{
+    margin: 1rem;
+}
+
+mat-card-content{
+    margin: 2rem;
+}
+
+mat-card-content button{
+    margin: 1rem;
+}
+
+mat-card-actions{
+    margin: 1rem;
+}

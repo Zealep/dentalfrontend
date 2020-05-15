@@ -1,0 +1,8 @@
+mat-card, mat-card-content,mat-card-actions{
+    margin:1rem;
+}
+img{
+    margin: 1rem;
+    height: 210px;
+    width: 280px;
+}

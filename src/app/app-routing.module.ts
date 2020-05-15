@@ -1,3 +1,4 @@
+import { GuardService } from './services/guard.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './shared/components/login/login.component';

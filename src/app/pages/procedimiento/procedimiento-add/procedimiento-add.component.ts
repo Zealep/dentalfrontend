@@ -21,12 +21,9 @@ export class ProcedimientoAddComponent implements OnInit {
   }
 
   submit(procedimiento: Procedimiento) {
-    console.log('entro al submit de procedimiento-add')
-    console.log('Se grabara', procedimiento);
    
       this.service.registrar(procedimiento)
         .subscribe(result => {
-          console.log('Procedimiento Guardado', result);
           this.router.navigate(['/pages/procedimientos']);
           // mensaje de confirmacion
           this.snackBar.open('Procedimiento fue registrado', 'Close', {

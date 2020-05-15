@@ -33,17 +33,14 @@ export class DoctorEditComponent implements OnInit {
         })
       )
       .subscribe(doctor => {
-        console.log('doctor', doctor);
         this.doctor = doctor;
       });
   }
 
   submit(doctor : Doctor) {
     doctor.idDoctor = this.id;
-    console.log('Going to update', doctor);
     this.service.modificar(doctor)
       .subscribe(result => {
-        console.log('Update finished', result);
         this.router.navigate(['/pages/doctores']);
         this.snackBar.open('El doctor fue modificado', 'Close', {
           duration: 3000

@@ -17,7 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ProcedimientoComponent implements OnInit {
   lista: Procedimiento[] = [];
-  displayedColumns:string[] = ['idProcedimiento', 'nombre', 'costo','descripcion','acciones'];
+  displayedColumns:string[] = ['nombre', 'costo','descripcion','acciones'];
   dataSource: MatTableDataSource<Procedimiento>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -62,7 +62,6 @@ export class ProcedimientoComponent implements OnInit {
   private sendDeleteRequest(procedimiento: Procedimiento) {
     this.procedimientoService.eliminar(procedimiento.idProcedimiento)
     .subscribe(response => {
-      console.log('Procedimiento has been deleted', response);
       this.loadProcedimientos();
       this.snackBar.open('Procedimiento eliminado', 'Close', {
         duration: 3000

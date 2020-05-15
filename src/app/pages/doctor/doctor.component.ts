@@ -18,7 +18,7 @@ import { ConfirmDialogModel } from 'src/app/shared/models/confirm-dialog-model';
 export class DoctorComponent implements OnInit {
 
   lista: Doctor[] = [];
-  displayedColumns:string[] = ['idDoctor', 'apellidos', 'nombres','dni','fechaNacimiento','telefono','celular','email','nroCop','acciones'];
+  displayedColumns:string[] = ['apellidos', 'nombres','dni','fechaNacimiento','telefono','celular','email','nroCop','acciones'];
   dataSource: MatTableDataSource<Doctor>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -63,7 +63,6 @@ export class DoctorComponent implements OnInit {
    private sendDeleteRequest(doctor: Doctor) {
      this.doctorService.eliminar(doctor.idDoctor)
      .subscribe(response => {
-       console.log('Doctor has been deleted', response);
        this.loadDoctores();
        this.snackBar.open('Doctor eliminado', 'Close', {
          duration: 3000

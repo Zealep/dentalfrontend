@@ -25,7 +25,7 @@ export class PacienteService {
     let access_token = JSON.parse(sessionStorage.getItem(TOKEN_NAME)).access_token;        
     return this.http.get<Paciente[]>(`${this.url}/list`,
     {
-      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
+      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`)
 
     })
     .pipe(
@@ -38,7 +38,7 @@ export class PacienteService {
 
     return this.http.get<Paciente>(`${this.url}/find/${id}`,
     {
-      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
+      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`)
 
     });
   }
@@ -49,7 +49,7 @@ export class PacienteService {
 
     return this.http.post<Respuesta>(`${this.url}/save`, paciente,
     {
-      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
+      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`)
 
     })
     .pipe(
@@ -62,7 +62,7 @@ export class PacienteService {
 
     return this.http.post<Respuesta>(`${this.url}/saveAlertas`, paciente,
     {
-      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
+      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`)
 
     })
     .pipe(
@@ -76,7 +76,7 @@ export class PacienteService {
 
     return this.http.put<Respuesta>(`${this.url}/update`, paciente,
     {
-      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
+      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`)
 
     })
     .pipe(
@@ -89,7 +89,7 @@ export class PacienteService {
 
     return this.http.delete<Respuesta>(`${this.url}/delete/${idPaciente}`,
     {
-      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
+      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`)
 
     })
     .pipe(
@@ -101,7 +101,7 @@ export class PacienteService {
     let access_token = JSON.parse(sessionStorage.getItem(TOKEN_NAME)).access_token;            
     return this.http.get(`${this.url}/obtenerFoto/${idPaciente}`, 
        {responseType: 'blob',
-       headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
+       headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`)
       });
   }
 
@@ -110,8 +110,7 @@ export class PacienteService {
     let access_token = JSON.parse(sessionStorage.getItem(TOKEN_NAME)).access_token; 
         return this.http.post<Respuesta>(`${this.url}/subirFoto`, formData ,
         {
-          headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
-
+          headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`)
         })
               .pipe(
                 catchError(this.handleError)
@@ -123,7 +122,7 @@ export class PacienteService {
     let access_token = JSON.parse(sessionStorage.getItem(TOKEN_NAME)).access_token; 
     return this.http.get(`${this.url}/export`,
     {responseType:'blob',
-    headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
+    headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`)
 
   });
   }
@@ -132,7 +131,7 @@ export class PacienteService {
     let access_token = JSON.parse(sessionStorage.getItem(TOKEN_NAME)).access_token; 
     return this.http.get<Paciente[]>(`${this.url}/onomastico`,
     {
-      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`).set('Content-Type', 'application/json')
+      headers: new HttpHeaders().set('Authorization', `bearer ${access_token}`)
 
     })
     .pipe(

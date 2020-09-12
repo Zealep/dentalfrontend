@@ -156,7 +156,7 @@ export class AgendaFormComponent implements OnInit {
   }
 
   initEditForm(data:any){
-    if(data.idCita!=null){
+    if(data!=null){
       this.idCita = data.idCita;
       this.citaService.getById(data.idCita).subscribe(c =>{
         this.formGroup.controls['doctorFrm'].setValue(c.doctor.idDoctor);

@@ -27,7 +27,7 @@ export class UsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsuarios();
-    this.getCatchError();
+    //this.getCatchError();
   }
 
   private getCatchError(){

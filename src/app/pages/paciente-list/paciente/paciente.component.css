@@ -5,10 +5,13 @@
 
   mat-sidenav {
     width: 300px;
-    padding-top: 0px;
   }
 
   mat-sidenav-content{
     background: #EBF3F5;
+  }
+
+  ::ng-deep .mat-sidenav-container{
+    height:100vh !important; /* or 100% */
   }
   

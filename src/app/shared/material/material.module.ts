@@ -92,7 +92,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
   ],
  providers: [
     {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {strict: true}},
-    { provide: MAT_DATE_LOCALE, useValue: 'es-PE' },        
+    {provide: MAT_DATE_LOCALE, useValue: 'es-PE' },        
     {provide: MatPaginatorIntl, useValue: getSpanishPaginatorIntl() },
     {provide: MAT_CHECKBOX_CLICK_ACTION, useValue: 'check'}
   ]

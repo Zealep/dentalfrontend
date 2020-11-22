@@ -1,3 +1,7 @@
+import { ProductoFormComponent } from './producto/producto-form/producto-form.component';
+import { ProductoComponent } from './producto/producto.component';
+import { CategoriaEditComponent } from './categoria/categoria-edit/categoria-edit.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 import { GuardService } from './../services/guard.service';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { ReporteFinanzasComponent } from './reporte-finanzas/reporte-finanzas.component';
@@ -25,15 +29,16 @@ import { IngresoComponent } from './ingreso/ingreso.component';
 import { IngresoAddComponent } from './ingreso/ingreso-add/ingreso-add.component';
 import { IngresoEditComponent } from './ingreso/ingreso-edit/ingreso-edit.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { CategoriaAddComponent } from './categoria/categoria-add/categoria-add.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
-    children: [ // 
+    children: [ //
       {
-        path: '', // 
+        path: '', //
         pathMatch: 'full',
         redirectTo: 'dashboard'
       },
@@ -118,6 +123,30 @@ const routes: Routes = [
         path: 'ingreso/edit/:id',
         component: IngresoEditComponent,
         canActivate:[GuardService]
+      },
+      {
+        path: 'categorias',
+        component: CategoriaComponent,
+        canActivate:[GuardService]
+      },
+      {
+        path: 'categoria/add',
+        component: CategoriaAddComponent,
+        canActivate:[GuardService]
+      },
+      {
+        path: 'categoria/edit/:id',
+        component: CategoriaEditComponent,
+        canActivate:[GuardService]
+      },
+       //CRUD PRODUCTO
+       {
+        path: 'producto',
+        component: ProductoComponent
+      },
+      {
+        path: 'producto/form',
+        component: ProductoFormComponent
       },
       {
         path: 'doctores',

@@ -47,10 +47,16 @@ import { DialogOrtodonciaComponent } from './dashboard/dialog-ortodoncia/dialog-
 import { DialogTratamientoComponent } from './dashboard/dialog-tratamiento/dialog-tratamiento.component';
 import { EmpresaComponent } from './empresa/empresa.component';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { UsuarioAltaComponent } from './usuario/usuario-alta/usuario-alta.component'; 
+import { UsuarioAltaComponent } from './usuario/usuario-alta/usuario-alta.component';
+import { ProductoComponent } from './producto/producto.component';
+import { ProductoFormComponent } from './producto/producto-form/producto-form.component';
+import { CategoriaComponent } from './categoria/categoria.component';
+import { CategoriaAddComponent } from './categoria/categoria-add/categoria-add.component';
+import { CategoriaEditComponent } from './categoria/categoria-edit/categoria-edit.component';
+import { CategoriaFormComponent } from './categoria/categoria-form/categoria-form.component'; 
 
 @NgModule({
-  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent, PacienteListComponent, PacienteFormComponent, PacienteAddComponent, PacienteEditComponent, ProcedimientoEditComponent, ProcedimientoAddComponent, ProcedimientoFormComponent, DoctorComponent, DoctorFormComponent, DoctorAddComponent, DoctorEditComponent, ReportePagosComponent, ReporteControlesComponent, EgresoComponent, IngresoComponent, IngresoFormComponent, IngresoAddComponent, IngresoEditComponent, EgresoFormComponent, EgresoAddComponent, EgresoEditComponent, AgendaComponent, AgendaFormComponent, AgendaSearchComponent, ReporteFinanzasComponent, DialogBirthdayComponent, DialogPacienteComponent, DialogOrtodonciaComponent, DialogTratamientoComponent, EmpresaComponent, UsuarioComponent, UsuarioAltaComponent],
+  declarations: [PagesComponent, DashboardComponent, ProcedimientoComponent, PacienteComponent, SidebarPacienteComponent, PacienteListComponent, PacienteFormComponent, PacienteAddComponent, PacienteEditComponent, ProcedimientoEditComponent, ProcedimientoAddComponent, ProcedimientoFormComponent, DoctorComponent, DoctorFormComponent, DoctorAddComponent, DoctorEditComponent, ReportePagosComponent, ReporteControlesComponent, EgresoComponent, IngresoComponent, IngresoFormComponent, IngresoAddComponent, IngresoEditComponent, EgresoFormComponent, EgresoAddComponent, EgresoEditComponent, AgendaComponent, AgendaFormComponent, AgendaSearchComponent, ReporteFinanzasComponent, DialogBirthdayComponent, DialogPacienteComponent, DialogOrtodonciaComponent, DialogTratamientoComponent, EmpresaComponent, UsuarioComponent, UsuarioAltaComponent, ProductoComponent, ProductoFormComponent, CategoriaComponent, CategoriaAddComponent, CategoriaEditComponent, CategoriaFormComponent],
   imports: [
     CommonModule,
     FormsModule,

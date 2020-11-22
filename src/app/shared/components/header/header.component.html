@@ -11,23 +11,33 @@
     <button mat-button [routerLink]="'/pages/pacientes'">
       <mat-icon>people_outline</mat-icon> Pacientes
     </button>
+    <button mat-button [matMenuTriggerFor]="menuInventario">
+      <mat-icon>shopping_cart</mat-icon> Inventario
+    </button>
+    <mat-menu #menuInventario="matMenu">
+      <button mat-menu-item [routerLink]="'/pages/producto'">Productos</button>
+      <button mat-menu-item [routerLink]="'/pages/categorias'">Categorias</button>
+    </mat-menu>
 
     <button mat-button [matMenuTriggerFor]="menuAdministracion">
-      Administracion
-      <mat-icon>arrow_drop_down</mat-icon></button>
+      <mat-icon>build</mat-icon>Administracion
+    </button>
+
     <mat-menu #menuAdministracion="matMenu">
       <button mat-menu-item [routerLink]="'/pages/procedimientos'">Procedimientos</button>
       <button mat-menu-item [routerLink]="'/pages/doctores'">Doctores</button>
       <button mat-menu-item [routerLink]="'/pages/egresos'">Egresos</button>
       <button mat-menu-item [routerLink]="'/pages/ingresos'">Ingresos</button>
+      <button mat-menu-item [routerLink]="'/pages/empresa'">Empresa</button>
+      <button mat-menu-item [routerLink]="'/pages/usuario'">Usuario</button>
 
     </mat-menu>
 
     <button mat-button [matMenuTriggerFor]="menuReportes">
-      Reportes
-      <mat-icon>arrow_drop_down</mat-icon> </button>
+      <mat-icon>leaderboard</mat-icon> Reportes
+     </button>
     <mat-menu #menuReportes="matMenu">
-      <button [routerLink]="'/pages/reporte-finanzas'" mat-menu-item>Reporte de Finazas</button>
+      <button [routerLink]="'/pages/reporte-finanzas'" mat-menu-item>Reporte de Finanzas</button>
       <!--<button [routerLink]="'/pages/reporte-controles'" mat-menu-item >Reporte de controles</button> -->
     </mat-menu>
 

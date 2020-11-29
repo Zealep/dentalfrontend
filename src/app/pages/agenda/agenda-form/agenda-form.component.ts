@@ -38,9 +38,9 @@ export class AgendaFormComponent implements OnInit {
   public minDate: moment.Moment;
   public maxDate: moment.Moment;
   public stepHour = 1;
-  public stepMinute = 1;
-  public stepSecond = 1;
+  public stepMinute = 15;
   public color: ThemePalette = 'primary';
+  public defaultTime = [9, 0 , 0]
 
   formGroup: FormGroup = new FormGroup({
     doctorFrm: new FormControl(''),
@@ -48,8 +48,8 @@ export class AgendaFormComponent implements OnInit {
     estadoFrm: new FormControl(''),
     asuntoFrm: new FormControl(''),
   })
-  
-  constructor(private doctorService: DoctorService, 
+
+  constructor(private doctorService: DoctorService,
     private snackBar: MatSnackBar,
     private route: ActivatedRoute,
     private citaService: CitaService,
@@ -59,7 +59,7 @@ export class AgendaFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.listDoctors();
-   
+
     this.listPacientes();
     this.filteredOptionsPaciente = this.myControlPaciente.valueChanges
     .pipe(
@@ -134,7 +134,7 @@ export class AgendaFormComponent implements OnInit {
     if(this.idCita!=0){
       cita.idCita = this.idCita;
     }
-    
+
     this.citaService.registrar(cita)
     .subscribe(result =>{
       this.clearForm();
@@ -149,7 +149,7 @@ export class AgendaFormComponent implements OnInit {
           duration: 5000
         });
       }
-     
+
     });
 
     this.dialogRef.close();
@@ -174,7 +174,7 @@ export class AgendaFormComponent implements OnInit {
     this.formGroup.reset();
     this.myControlPaciente.reset();
   }
-  
+
   close(){
     this.dialogRef.close();
   }
